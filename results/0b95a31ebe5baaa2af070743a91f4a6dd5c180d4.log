@@ -1,0 +1,373 @@
+===== 0-summary.txt =====
+commit: 0b95a31ebe5baaa2af070743a91f4a6dd5c180d4
+branch: studio
+backend-build: success
+vet: success
+frontend-client: success
+backend-tests: success
+frontend-typecheck: success
+frontend-lint: success
+frontend-unit: success
+===== 1-backend-build.log =====
+/opt/hostedtoolcache/go/1.27.0/x64/bin/go build -v=false -tags osusergo  -ldflags -s -w -X "code.vikunja.io/api/pkg/version.Version=0b95a31ebe" -X "main.Tags=osusergo " -o vikunja
+
+===== 2-vet.log =====
+===== 3-frontend-client.log =====
+$ openapi-ts
+[90m@hey-api/openapi-ts v0.99.0[39m
+
+[90m[Job 1] [39m[90m~[39m [36mGenerating...[39m
+[90m[Job 1] [39m[36m  [1] [39m/tmp/vikunja-openapi-626263058.json
+[90m[Job 1] [39m[32m✓[39m [96m./src/client/generated[39m [90m· 4 files · 584ms[39m
+===== 4-backend-tests.log =====
+/opt/hostedtoolcache/go/1.27.0/x64/bin/go test -v=false -p 1 -coverprofile cover.out -timeout 45m -short ./...
+
+	code.vikunja.io/api		coverage: 0.0% of statements
+?   	code.vikunja.io/api/frontend	[no test files]
+ok  	code.vikunja.io/api/pkg/audit	(cached)	coverage: 78.2% of statements
+ok  	code.vikunja.io/api/pkg/caldav	0.037s	coverage: 92.9% of statements
+ok  	code.vikunja.io/api/pkg/caldavtests	0.014s
+	code.vikunja.io/api/pkg/cmd		coverage: 0.0% of statements
+ok  	code.vikunja.io/api/pkg/config	0.015s	coverage: 98.0% of statements
+	code.vikunja.io/api/pkg/cron		coverage: 0.0% of statements
+ok  	code.vikunja.io/api/pkg/db	(cached)	coverage: 43.6% of statements
+ok  	code.vikunja.io/api/pkg/doctor	0.016s	coverage: 30.1% of statements
+ok  	code.vikunja.io/api/pkg/e2etests	0.015s
+ok  	code.vikunja.io/api/pkg/errorreport	(cached)	coverage: 98.2% of statements
+ok  	code.vikunja.io/api/pkg/events	(cached)	coverage: 17.6% of statements
+ok  	code.vikunja.io/api/pkg/files	(cached)	coverage: 62.5% of statements
+	code.vikunja.io/api/pkg/health		coverage: 0.0% of statements
+	code.vikunja.io/api/pkg/i18n		coverage: 0.0% of statements
+	code.vikunja.io/api/pkg/initialize		coverage: 0.0% of statements
+ok  	code.vikunja.io/api/pkg/license	(cached)	coverage: 7.9% of statements
+ok  	code.vikunja.io/api/pkg/log	(cached)	coverage: 17.6% of statements
+ok  	code.vikunja.io/api/pkg/mail	(cached)	coverage: 63.7% of statements
+ok  	code.vikunja.io/api/pkg/metrics	(cached)	coverage: 7.2% of statements
+ok  	code.vikunja.io/api/pkg/migration	0.122s	coverage: 23.9% of statements
+ok  	code.vikunja.io/api/pkg/models	8.798s	coverage: 69.1% of statements
+ok  	code.vikunja.io/api/pkg/modules/auth	0.012s	coverage: 41.3% of statements
+ok  	code.vikunja.io/api/pkg/modules/auth/ldap	0.038s	coverage: 15.9% of statements
+ok  	code.vikunja.io/api/pkg/modules/auth/oauth2server	0.012s	coverage: 14.9% of statements
+ok  	code.vikunja.io/api/pkg/modules/auth/openid	27.339s	coverage: 67.0% of statements
+ok  	code.vikunja.io/api/pkg/modules/avatar	(cached)	coverage: 0.0% of statements
+	code.vikunja.io/api/pkg/modules/avatar/botmarble		coverage: 0.0% of statements
+	code.vikunja.io/api/pkg/modules/avatar/empty		coverage: 0.0% of statements
+ok  	code.vikunja.io/api/pkg/modules/avatar/gravatar	(cached)	coverage: 66.7% of statements
+ok  	code.vikunja.io/api/pkg/modules/avatar/initials	(cached)	coverage: 83.6% of statements
+	code.vikunja.io/api/pkg/modules/avatar/ldap		coverage: 0.0% of statements
+	code.vikunja.io/api/pkg/modules/avatar/marble		coverage: 0.0% of statements
+	code.vikunja.io/api/pkg/modules/avatar/openid		coverage: 0.0% of statements
+ok  	code.vikunja.io/api/pkg/modules/avatar/upload	(cached)	coverage: 22.7% of statements
+?   	code.vikunja.io/api/pkg/modules/background	[no test files]
+	code.vikunja.io/api/pkg/modules/background/handler		coverage: 0.0% of statements
+	code.vikunja.io/api/pkg/modules/background/unsplash		coverage: 0.0% of statements
+	code.vikunja.io/api/pkg/modules/background/upload		coverage: 0.0% of statements
+ok  	code.vikunja.io/api/pkg/modules/dump	0.016s	coverage: 6.3% of statements
+ok  	code.vikunja.io/api/pkg/modules/humabridge	(cached)	coverage: 95.7% of statements
+ok  	code.vikunja.io/api/pkg/modules/imageutils	(cached)	coverage: 80.0% of statements
+ok  	code.vikunja.io/api/pkg/modules/keyvalue	(cached)	coverage: 47.3% of statements
+	code.vikunja.io/api/pkg/modules/keyvalue/error		coverage: 0.0% of statements
+	code.vikunja.io/api/pkg/modules/keyvalue/memory		coverage: 0.0% of statements
+	code.vikunja.io/api/pkg/modules/keyvalue/redis		coverage: 0.0% of statements
+ok  	code.vikunja.io/api/pkg/modules/mcp	0.047s	coverage: 72.3% of statements
+ok  	code.vikunja.io/api/pkg/modules/migration	12.464s	coverage: 69.1% of statements
+ok  	code.vikunja.io/api/pkg/modules/migration/csv	0.013s	coverage: 67.6% of statements
+ok  	code.vikunja.io/api/pkg/modules/migration/handler	0.172s	coverage: 57.4% of statements
+ok  	code.vikunja.io/api/pkg/modules/migration/microsoft-todo	0.013s	coverage: 42.1% of statements
+ok  	code.vikunja.io/api/pkg/modules/migration/planka	3.147s	coverage: 90.4% of statements
+ok  	code.vikunja.io/api/pkg/modules/migration/ticktick	0.014s	coverage: 70.3% of statements
+ok  	code.vikunja.io/api/pkg/modules/migration/todoist	0.017s	coverage: 44.1% of statements
+ok  	code.vikunja.io/api/pkg/modules/migration/trello	0.017s	coverage: 44.1% of statements
+ok  	code.vikunja.io/api/pkg/modules/migration/vikunja-file	0.255s	coverage: 80.9% of statements
+ok  	code.vikunja.io/api/pkg/modules/migration/wekan	0.013s	coverage: 84.6% of statements
+ok  	code.vikunja.io/api/pkg/notifications	(cached)	coverage: 80.9% of statements
+	code.vikunja.io/api/pkg/plugins		coverage: 0.0% of statements
+ok  	code.vikunja.io/api/pkg/plugins/yaegi	0.036s	coverage: 79.5% of statements
+	code.vikunja.io/api/pkg/red		coverage: 0.0% of statements
+ok  	code.vikunja.io/api/pkg/richtext	(cached)	coverage: 89.8% of statements
+ok  	code.vikunja.io/api/pkg/routes	0.023s	coverage: 18.1% of statements
+	code.vikunja.io/api/pkg/routes/api/shared		coverage: 0.0% of statements
+	code.vikunja.io/api/pkg/routes/api/v1		coverage: 0.0% of statements
+	code.vikunja.io/api/pkg/routes/api/v1/admin		coverage: 0.0% of statements
+ok  	code.vikunja.io/api/pkg/routes/api/v2	0.054s	coverage: 38.9% of statements
+ok  	code.vikunja.io/api/pkg/routes/caldav	1.876s	coverage: 55.7% of statements
+ok  	code.vikunja.io/api/pkg/routes/feeds	0.060s	coverage: 85.9% of statements
+ok  	code.vikunja.io/api/pkg/routes/middleware	(cached)	coverage: 71.1% of statements
+	code.vikunja.io/api/pkg/swagger		coverage: 0.0% of statements
+ok  	code.vikunja.io/api/pkg/user	(cached)	coverage: 53.3% of statements
+ok  	code.vikunja.io/api/pkg/utils	(cached)	coverage: 75.1% of statements
+	code.vikunja.io/api/pkg/version		coverage: 0.0% of statements
+ok  	code.vikunja.io/api/pkg/web	0.179s	coverage: [no statements]
+ok  	code.vikunja.io/api/pkg/web/files	0.011s	coverage: 13.6% of statements
+	code.vikunja.io/api/pkg/web/handler		coverage: 0.0% of statements
+ok  	code.vikunja.io/api/pkg/websocket	4.621s	coverage: 73.1% of statements
+ok  	code.vikunja.io/api/pkg/webtests	0.014s
+ok  	code.vikunja.io/api/pkg/yaegi_symbols	0.021s	coverage: 4.9% of statements
+===== 5-frontend-typecheck.log =====
+$ vue-tsc --build --force
+===== 6-frontend-lint.log =====
+$ eslint 'src/**/*.{js,ts,vue}'
+
+/home/runner/work/vikunja/vikunja/frontend/src/components/input/AutocompleteDropdown.vue
+  24:15  warning  Prop 'modelValue' requires default value to be set  vue/require-default-prop
+
+/home/runner/work/vikunja/vikunja/frontend/src/components/input/DateRangeInput.vue
+  54:2  warning  Prop 'id' requires default value to be set  vue/require-default-prop
+
+/home/runner/work/vikunja/vikunja/frontend/src/components/input/FormField.vue
+  6:2  warning  Prop 'modelValue' requires default value to be set  vue/require-default-prop
+  7:2  warning  Prop 'label' requires default value to be set       vue/require-default-prop
+  8:2  warning  Prop 'error' requires default value to be set       vue/require-default-prop
+  9:2  warning  Prop 'id' requires default value to be set          vue/require-default-prop
+
+/home/runner/work/vikunja/vikunja/frontend/src/components/input/FormInput.vue
+   6:2  warning  Prop 'modelValue' requires default value to be set  vue/require-default-prop
+   8:2  warning  Prop 'id' requires default value to be set          vue/require-default-prop
+  11:2  warning  Prop 'error' requires default value to be set       vue/require-default-prop
+
+/home/runner/work/vikunja/vikunja/frontend/src/components/input/FormSelect.vue
+  11:2  warning  Prop 'modelValue' requires default value to be set  vue/require-default-prop
+  13:2  warning  Prop 'id' requires default value to be set          vue/require-default-prop
+  16:2  warning  Prop 'error' requires default value to be set       vue/require-default-prop
+  17:2  warning  Prop 'options' requires default value to be set     vue/require-default-prop
+
+/home/runner/work/vikunja/vikunja/frontend/src/components/input/Reactions.vue
+  16:2  warning  Prop 'taskId' requires default value to be set  vue/require-default-prop
+
+✖ 14 problems (0 errors, 14 warnings)
+
+===== 7-frontend-unit.log =====
+$ vitest --dir ./src --run
+easing-gradient: postcss.plugin was deprecated. Migration guide:
+https://evilmartians.com/chronicles/postcss-8-plugin-migration
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.11 [39m[90m/home/runner/work/vikunja/vikunja/frontend[39m
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "/home/runner/work/vikunja/vikunja/frontend/src/styles/common-imports.scss";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    ../../../../../../../src/components/misc/Message.vue 2:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+16 │ @import "bulma-css-variables/sass/utilities/_all";
+   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    ../../../../../../../src/styles/common-imports.scss 16:9  @import
+    ../../../../../../../src/components/misc/Message.vue 2:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "/home/runner/work/vikunja/vikunja/frontend/src/styles/common-imports.scss";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    ../../../../../../../src/components/base/BaseButton.vue 2:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+16 │ @import "bulma-css-variables/sass/utilities/_all";
+   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    ../../../../../../../src/styles/common-imports.scss 16:9     @import
+    ../../../../../../../src/components/base/BaseButton.vue 2:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "/home/runner/work/vikunja/vikunja/frontend/src/styles/common-imports.scss";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    ../../../../../../../src/components/input/FormField.vue 2:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+... (5754 lines, middle cut) ...
+735:[90mstdout[2m | src/composables/useWebSocket.test.ts[2m > [22m[2mstops awaiting the first connection when the socket cannot be created
+738:[90mstderr[2m | src/composables/useWebSocket.test.ts[2m > [22m[2mstops awaiting the first connection when the socket cannot be created
+739:[22m[39mWebSocket: failed to create connection Error: blocked
+1944:[22m[39m[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+1947:[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+1964:[22m[39m[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+1967:[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+1984:[22m[39m[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+1987:[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+2004:[22m[39m[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+2007:[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+2024:[22m[39m[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+2027:[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+2044:[22m[39m[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+2047:[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+2064:[22m[39m[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+2067:[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+2084:[22m[39m[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+2087:[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+2104:[22m[39m[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+2107:[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+3424:[90mstderr[2m | src/stores/base.test.ts[2m > [22m[2mbase store identity reset[2m > [22m[2mshows the rate limit error when the first user request is rate limited
+3425:[22m[39mError refreshing user info: { status: [33m429[39m }
+3946:  at <BaseButton class="button is-text is-inverted underline-none has-no-shadow" disabled=false aria-disabled=undefined  ... > 
+3963:  at <BaseButton class="button is-outlined" disabled=false aria-disabled=undefined  ... > 
+3972:  at <XButton key=1 variant="primary" icon=undefined  ... > 
+3980:  at <BaseButton class="button is-primary mis-2" disabled=false aria-disabled=undefined  ... > 
+3981:  at <XButton key=1 variant="primary" icon=undefined  ... > 
+3997:  at <BaseButton class="button is-text is-inverted underline-none has-no-shadow" disabled=false aria-disabled=undefined  ... > 
+4014:  at <BaseButton class="button is-outlined" disabled=false aria-disabled=undefined  ... > 
+4023:  at <XButton key=1 variant="primary" icon=undefined  ... > 
+4032:  at <XButton key=1 variant="primary" icon=undefined  ... > 
+4050:  at <BaseButton class="button is-text is-inverted underline-none has-no-shadow" disabled=false aria-disabled=undefined  ... > 
+4067:  at <BaseButton class="button is-outlined" disabled=false aria-disabled=undefined  ... > 
+4076:  at <XButton key=1 variant="primary" icon=undefined  ... > 
+4084:  at <BaseButton class="button is-primary mis-2" disabled=false aria-disabled=undefined  ... > 
+4085:  at <XButton key=1 variant="primary" icon=undefined  ... > 
+5140: [32m✓[39m src/helpers/parseValidationErrors.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+5191:  at <BaseButton class="button is-primary" disabled=false aria-disabled=undefined  ... > 
+5202:  at <BaseButton class="button is-primary" disabled=false aria-disabled=undefined  ... > 
+5213:  at <BaseButton class="button is-primary" disabled=false aria-disabled=undefined  ... > 
+5224:  at <BaseButton class="button is-primary has-no-shadow" disabled=false aria-disabled=undefined  ... > 
+5235:  at <BaseButton class="button is-primary" disabled=false aria-disabled=undefined  ... > 
+5246:  at <BaseButton class="button is-text is-inverted underline-none has-no-shadow" disabled=false aria-disabled=undefined  ... > 
+5291:  at <BaseButton class="button is-primary" disabled=false aria-disabled=undefined  ... > 
+5302:  at <BaseButton class="button is-primary" disabled=true aria-disabled=undefined  ... > 
+5329: [32m✓[39m src/helpers/handleChunkLoadErrors.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+5372:[90mstderr[2m | src/message/index.test.ts[2m > [22m[2mgetErrorText[2m > [22m[2mfalls back to the message for an unknown error code
+5373:[22m[39m[intlify] Not found 'error.99999' key in 'en' locale messages.
+5375:[90mstderr[2m | src/message/index.test.ts[2m > [22m[2mgetErrorText[2m > [22m[2mreads a direct problem response
+5376:[22m[39m[intlify] Not found 'error.99999' key in 'en' locale messages.
+5715: [32m✓[39m src/views/tasks/taskDetailError.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+... tail ...
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+16 │ @import "bulma-css-variables/sass/utilities/_all";
+   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    ../../../../../../../src/styles/common-imports.scss 16:9               @import
+    ../../../../../../../src/components/gantt/GanttRelationArrows.vue 2:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "/home/runner/work/vikunja/vikunja/frontend/src/styles/common-imports.scss";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    ../../../../../../../src/components/gantt/GanttChart.vue 2:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+16 │ @import "bulma-css-variables/sass/utilities/_all";
+   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    ../../../../../../../src/styles/common-imports.scss 16:9      @import
+    ../../../../../../../src/components/gantt/GanttChart.vue 2:9  root stylesheet
+
+ [32m✓[39m src/components/gantt/GanttChart.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 45[2mms[22m[39m
+ [32m✓[39m src/client/queryClient.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/components/input/editor/blockquoteWithCommentId.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 90[2mms[22m[39m
+[90mstderr[2m | src/components/project/partials/FilterPopup.test.ts[2m > [22m[2mFilterPopup[2m > [22m[2mcarries every field the filters edited to the parent
+[22m[39m[Vue warn]: Failed to resolve component: XButton
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. 
+  at <FilterPopup modelValue= { filter: [32m''[39m, q: [32m''[39m, filter_include_nulls: [33mfalse[39m, per_page: [33m50[39m } ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+[Vue warn]: Failed to resolve component: Modal
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. 
+  at <FilterPopup modelValue= { filter: [32m''[39m, q: [32m''[39m, filter_include_nulls: [33mfalse[39m, per_page: [33m50[39m } ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+
+[90mstderr[2m | src/components/project/partials/FilterPopup.test.ts[2m > [22m[2mFilterPopup[2m > [22m[2mcarries every field the filters edited to the parent
+[22m[39m[Vue warn]: Failed to resolve component: XButton
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. 
+  at <FilterPopup modelValue= { filter: [32m''[39m, q: [32m''[39m, filter_include_nulls: [33mfalse[39m, per_page: [33m50[39m } ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+[Vue warn]: Failed to resolve component: Modal
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. 
+  at <FilterPopup modelValue= { filter: [32m''[39m, q: [32m''[39m, filter_include_nulls: [33mfalse[39m, per_page: [33m50[39m } ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+
+ [32m✓[39m src/components/project/partials/FilterPopup.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 32[2mms[22m[39m
+ [32m✓[39m src/components/input/editor/TaskLinkView.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 42[2mms[22m[39m
+ [32m✓[39m src/views/user/PasswordReset.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 55[2mms[22m[39m
+ [32m✓[39m src/helpers/calculateTaskPosition.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/components/input/FormCheckbox.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 40[2mms[22m[39m
+ [32m✓[39m src/views/user/RequestPasswordReset.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 47[2mms[22m[39m
+ [32m✓[39m src/helpers/time/roundToNaturalDayBoundary.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/helpers/apiUrl.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/helpers/runWrites.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/helpers/parseDateOrNull.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/client/publicClient.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/composables/useClampedPage.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/client/queries/subscriptionRequests.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m src/components/misc/Shortcut.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 23[2mms[22m[39m
+ [32m✓[39m src/components/home/Logo.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 36[2mms[22m[39m
+ [32m✓[39m src/helpers/hourToDaytime.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/views/migrate/migrators.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/helpers/time/calendarGrid.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/components/input/editor/clipboardHtml.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32m✓[39m src/helpers/time/toISOStringOrNull.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m src/views/migrate/csvAttributeLabels.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/components/misc/PaginationItem.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 45[2mms[22m[39m
+ [32m✓[39m src/helpers/user.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m src/helpers/apiToken.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/views/tasks/taskDetailError.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m src/helpers/time/dateMath.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m src/helpers/stringHash.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/client/queries/fetchAllPages.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m src/helpers/saveLastVisited.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m src/helpers/time/createDateFromString.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m src/client/queries/blobResponse.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/views/project/helpers/useGanttTaskList.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 3[2mms[22m[39m
+ [32m✓[39m src/composables/useRouteFilters.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 4[2mms[22m[39m
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "/home/runner/work/vikunja/vikunja/frontend/src/styles/common-imports.scss";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    ../../../../../../../src/components/input/editor/mention/MentionList.vue 2:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+16 │ @import "bulma-css-variables/sass/utilities/_all";
+   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    ../../../../../../../src/styles/common-imports.scss 16:9                      @import
+    ../../../../../../../src/components/input/editor/mention/MentionList.vue 2:9  root stylesheet
+
+ [32m✓[39m src/components/input/editor/mention/mentionSuggestion.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 3[2mms[22m[39m
+ [32m✓[39m src/composables/useIsAlive.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m src/helpers/color/colorIsDark.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+ [32m✓[39m src/helpers/color/colorFromHex.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m195 passed[39m[22m[90m (195)[39m
+[2m      Tests [22m [1m[32m2428 passed[39m[22m[90m (2428)[39m
+[2m   Start at [22m 14:21:36
+[2m   Duration [22m 60.43s[2m (transform 16.55s, setup 1.11s, import 67.45s, tests 19.85s, environment 61.31s)[22m
+

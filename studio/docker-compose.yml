@@ -1,0 +1,30 @@
+# Studio tracker: Vikunja with project money, clients and the projects overview.
+#
+# 1. Copy this file to your server, into a new folder (e.g. ~/studio).
+# 2. Change VIKUNJA_SERVICE_PUBLICURL to the address people will open.
+# 3. Change VIKUNJA_SERVICE_SECRET to a long random string
+#    (run: openssl rand -hex 32).
+# 4. Make the data folders writable for the app:
+#      mkdir -p files db && sudo chown 1000:1000 files db
+# 5. Run: docker compose up -d
+#
+# To update after new changes: docker compose pull && docker compose up -d
+
+services:
+  vikunja:
+    image: ghcr.io/wtfcadu/vikunja:studio
+    restart: unless-stopped
+    ports:
+      - "3456:3456"
+    environment:
+      VIKUNJA_SERVICE_PUBLICURL: "https://tasks.example.com/"
+      VIKUNJA_SERVICE_SECRET: "change-me-to-a-long-random-string"
+      VIKUNJA_SERVICE_TIMEZONE: "Europe/Minsk"
+      # Turn this off after you and your workers have made accounts,
+      # then add new people by invite link from the admin pages.
+      VIKUNJA_SERVICE_ENABLEREGISTRATION: "true"
+      VIKUNJA_DATABASE_TYPE: "sqlite"
+      VIKUNJA_DATABASE_PATH: "/db/vikunja.db"
+    volumes:
+      - ./files:/app/vikunja/files
+      - ./db:/db

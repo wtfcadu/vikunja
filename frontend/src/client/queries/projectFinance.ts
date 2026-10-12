@@ -81,7 +81,7 @@ export function normalizeProjectOverviewItem(item: ProjectOverviewItem): Project
 }
 
 /** Converts minor units (pence, cents) to a display string such as "£1,250.00". */
-export function formatMoney(minor: number, currency: string, locale = i18n.global.locale.value): string {
+export function formatMoney(minor: number, currency: string, locale: string = i18n.global.locale.value): string {
 	const value = minor / 100
 	if (/^[A-Z]{3}$/.test(currency)) {
 		try {

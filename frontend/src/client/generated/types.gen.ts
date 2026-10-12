@@ -1278,6 +1278,18 @@ export type PaginatedProject = {
     total_pages?: number;
 };
 
+export type PaginatedProjectPayment = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    items?: Array<ProjectPayment> | null;
+    page?: number;
+    per_page?: number;
+    total?: number;
+    total_pages?: number;
+};
+
 export type PaginatedProjectView = {
     /**
      * A URL to the JSON Schema for this object.
@@ -1570,6 +1582,228 @@ export type ProjectDuplicate = {
      * The id of the project under which the duplicate should be created. Omit or 0 to place the copy at the top level; you need write access to the parent.
      */
     parent_project_id?: number;
+};
+
+export type ProjectFinance = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * The client the project is for. Free text.
+     */
+    client?: string;
+    /**
+     * A timestamp when these details were first saved.
+     */
+    readonly created?: string;
+    /**
+     * ISO 4217 currency code of the fee and of every payment on this project, e.g. GBP. Stored upper-case.
+     */
+    currency?: string;
+    /**
+     * The agreed fee for the project in minor units of the currency (pence, cents).
+     */
+    fee?: number;
+    /**
+     * The project these details belong to. Taken from the URL path; ignored on write.
+     */
+    readonly project_id?: number;
+    /**
+     * A timestamp when these details were last changed.
+     */
+    readonly updated?: string;
+};
+
+export type ProjectFinanceReadBody = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * The client the project is for. Free text.
+     */
+    client?: string;
+    /**
+     * A timestamp when these details were first saved.
+     */
+    readonly created?: string;
+    /**
+     * ISO 4217 currency code of the fee and of every payment on this project, e.g. GBP. Stored upper-case.
+     */
+    currency?: string;
+    /**
+     * The agreed fee for the project in minor units of the currency (pence, cents).
+     */
+    fee?: number;
+    /**
+     * The maximum permission the requesting user has on these details (always 2 for the owner).
+     */
+    readonly max_permission?: number;
+    /**
+     * The project these details belong to. Taken from the URL path; ignored on write.
+     */
+    readonly project_id?: number;
+    /**
+     * A timestamp when these details were last changed.
+     */
+    readonly updated?: string;
+};
+
+export type ProjectOverviewItem = {
+    /**
+     * The client the project is for.
+     */
+    client?: string;
+    /**
+     * ISO 4217 currency code of the fee and payments.
+     */
+    currency?: string;
+    /**
+     * Finished tasks on the project.
+     */
+    done_tasks?: number;
+    /**
+     * The agreed fee in minor units.
+     */
+    fee?: number;
+    /**
+     * The project color without the leading #.
+     */
+    hex_color?: string;
+    /**
+     * The project id.
+     */
+    id?: number;
+    /**
+     * Whether the project is archived.
+     */
+    is_archived?: boolean;
+    /**
+     * Unfinished tasks on the project assigned to the requesting user.
+     */
+    my_open_tasks?: number;
+    /**
+     * Unfinished tasks on the project.
+     */
+    open_tasks?: number;
+    /**
+     * Fee minus paid in minor units, never below zero.
+     */
+    owed?: number;
+    /**
+     * The sum of all recorded payments in minor units.
+     */
+    paid?: number;
+    /**
+     * The parent project id, or 0 for a top-level project.
+     */
+    parent_project_id?: number;
+    /**
+     * How many payments were recorded.
+     */
+    payments?: number;
+    /**
+     * The project title.
+     */
+    title?: string;
+    /**
+     * Everyone with at least one task on the project assigned to them, the requesting user included.
+     */
+    workers?: Array<ProjectOverviewWorker> | null;
+};
+
+export type ProjectOverviewWorker = {
+    /**
+     * The user's id.
+     */
+    id?: number;
+    /**
+     * The user's full name, if set.
+     */
+    name?: string;
+    /**
+     * How many unfinished tasks on the project are assigned to this person.
+     */
+    open_tasks?: number;
+    /**
+     * The user's username.
+     */
+    username?: string;
+};
+
+export type ProjectPayment = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * The amount paid in minor units of the project's currency (pence, cents).
+     */
+    amount?: number;
+    /**
+     * A timestamp when this payment was recorded.
+     */
+    readonly created?: string;
+    /**
+     * The unique, numeric id of this payment.
+     */
+    readonly id?: number;
+    /**
+     * A short note, such as 'Deposit' or an invoice number.
+     */
+    note?: string;
+    /**
+     * When the payment arrived.
+     */
+    paid_at?: string;
+    /**
+     * The project this payment belongs to. Taken from the URL path; ignored on write.
+     */
+    readonly project_id?: number;
+    /**
+     * A timestamp when this payment was last changed.
+     */
+    readonly updated?: string;
+};
+
+export type ProjectPaymentReadBody = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * The amount paid in minor units of the project's currency (pence, cents).
+     */
+    amount?: number;
+    /**
+     * A timestamp when this payment was recorded.
+     */
+    readonly created?: string;
+    /**
+     * The unique, numeric id of this payment.
+     */
+    readonly id?: number;
+    /**
+     * The maximum permission the requesting user has on this payment (always 2 for the owner).
+     */
+    readonly max_permission?: number;
+    /**
+     * A short note, such as 'Deposit' or an invoice number.
+     */
+    note?: string;
+    /**
+     * When the payment arrived.
+     */
+    paid_at?: string;
+    /**
+     * The project this payment belongs to. Taken from the URL path; ignored on write.
+     */
+    readonly project_id?: number;
+    /**
+     * A timestamp when this payment was last changed.
+     */
+    readonly updated?: string;
 };
 
 export type ProjectReadBody = {
@@ -4081,6 +4315,14 @@ export type PaginatedProjectWritable = {
     total_pages?: number;
 };
 
+export type PaginatedProjectPaymentWritable = {
+    items?: Array<ProjectPaymentWritable> | null;
+    page?: number;
+    per_page?: number;
+    total?: number;
+    total_pages?: number;
+};
+
 export type PaginatedProjectViewWritable = {
     items?: Array<ProjectViewWritable> | null;
     page?: number;
@@ -4249,6 +4491,66 @@ export type ProjectDuplicateWritable = {
      * The id of the project under which the duplicate should be created. Omit or 0 to place the copy at the top level; you need write access to the parent.
      */
     parent_project_id?: number;
+};
+
+export type ProjectFinanceWritable = {
+    /**
+     * The client the project is for. Free text.
+     */
+    client?: string;
+    /**
+     * ISO 4217 currency code of the fee and of every payment on this project, e.g. GBP. Stored upper-case.
+     */
+    currency?: string;
+    /**
+     * The agreed fee for the project in minor units of the currency (pence, cents).
+     */
+    fee?: number;
+};
+
+export type ProjectFinanceReadBodyWritable = {
+    /**
+     * The client the project is for. Free text.
+     */
+    client?: string;
+    /**
+     * ISO 4217 currency code of the fee and of every payment on this project, e.g. GBP. Stored upper-case.
+     */
+    currency?: string;
+    /**
+     * The agreed fee for the project in minor units of the currency (pence, cents).
+     */
+    fee?: number;
+};
+
+export type ProjectPaymentWritable = {
+    /**
+     * The amount paid in minor units of the project's currency (pence, cents).
+     */
+    amount?: number;
+    /**
+     * A short note, such as 'Deposit' or an invoice number.
+     */
+    note?: string;
+    /**
+     * When the payment arrived.
+     */
+    paid_at?: string;
+};
+
+export type ProjectPaymentReadBodyWritable = {
+    /**
+     * The amount paid in minor units of the project's currency (pence, cents).
+     */
+    amount?: number;
+    /**
+     * A short note, such as 'Deposit' or an invoice number.
+     */
+    note?: string;
+    /**
+     * When the payment arrived.
+     */
+    paid_at?: string;
 };
 
 export type ProjectReadBodyWritable = {
@@ -6972,6 +7274,31 @@ export type OauthTokenResponses = {
 
 export type OauthTokenResponse = OauthTokenResponses[keyof OauthTokenResponses];
 
+export type ProjectOverviewListData = {
+    body?: never;
+    path?: never;
+    query?: never;
+    url: '/project-overview';
+};
+
+export type ProjectOverviewListErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type ProjectOverviewListError = ProjectOverviewListErrors[keyof ProjectOverviewListErrors];
+
+export type ProjectOverviewListResponses = {
+    /**
+     * OK
+     */
+    200: Array<ProjectOverviewItem> | null;
+};
+
+export type ProjectOverviewListResponse = ProjectOverviewListResponses[keyof ProjectOverviewListResponses];
+
 export type ProjectsListData = {
     body?: never;
     path?: never;
@@ -7358,6 +7685,302 @@ export type ProjectsBackgroundUploadResponses = {
 };
 
 export type ProjectsBackgroundUploadResponse = ProjectsBackgroundUploadResponses[keyof ProjectsBackgroundUploadResponses];
+
+export type ProjectFinanceReadData = {
+    body?: never;
+    headers?: {
+        /**
+         * Succeeds if the server's resource matches one of the passed values.
+         */
+        'If-Match'?: Array<string> | null;
+        /**
+         * Succeeds if the server's resource matches none of the passed values. On writes, the special value * may be used to match any existing value.
+         */
+        'If-None-Match'?: Array<string> | null;
+        /**
+         * Succeeds if the server's resource date is more recent than the passed date.
+         */
+        'If-Modified-Since'?: string;
+        /**
+         * Succeeds if the server's resource date is older or the same as the passed date.
+         */
+        'If-Unmodified-Since'?: string;
+    };
+    path: {
+        project: number;
+    };
+    query?: never;
+    url: '/projects/{project}/finance';
+};
+
+export type ProjectFinanceReadErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type ProjectFinanceReadError = ProjectFinanceReadErrors[keyof ProjectFinanceReadErrors];
+
+export type ProjectFinanceReadResponses = {
+    /**
+     * OK
+     */
+    200: ProjectFinanceReadBody;
+};
+
+export type ProjectFinanceReadResponse = ProjectFinanceReadResponses[keyof ProjectFinanceReadResponses];
+
+export type PatchProjectFinanceReadData = {
+    body: Array<JsonPatchOp> | null;
+    path: {
+        project: number;
+    };
+    query?: never;
+    url: '/projects/{project}/finance';
+};
+
+export type PatchProjectFinanceReadErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type PatchProjectFinanceReadError = PatchProjectFinanceReadErrors[keyof PatchProjectFinanceReadErrors];
+
+export type PatchProjectFinanceReadResponses = {
+    /**
+     * OK
+     */
+    200: ProjectFinance;
+};
+
+export type PatchProjectFinanceReadResponse = PatchProjectFinanceReadResponses[keyof PatchProjectFinanceReadResponses];
+
+export type ProjectFinanceUpdateData = {
+    body: ProjectFinanceReadBodyWritable;
+    path: {
+        project: number;
+    };
+    query?: never;
+    url: '/projects/{project}/finance';
+};
+
+export type ProjectFinanceUpdateErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type ProjectFinanceUpdateError = ProjectFinanceUpdateErrors[keyof ProjectFinanceUpdateErrors];
+
+export type ProjectFinanceUpdateResponses = {
+    /**
+     * OK
+     */
+    200: ProjectFinance;
+};
+
+export type ProjectFinanceUpdateResponse = ProjectFinanceUpdateResponses[keyof ProjectFinanceUpdateResponses];
+
+export type ProjectPaymentsListData = {
+    body?: never;
+    path: {
+        project: number;
+    };
+    query?: {
+        /**
+         * 1-based page number.
+         */
+        page?: number;
+        /**
+         * Items per page. Defaults to the instance's configured maximum (service.maxitemsperpage, reported as max_items_per_page by /info) and is silently capped at it; asking for more is not an error.
+         */
+        per_page?: number;
+        /**
+         * Search query; filters the list to items matching this string.
+         */
+        q?: string;
+    };
+    url: '/projects/{project}/payments';
+};
+
+export type ProjectPaymentsListErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type ProjectPaymentsListError = ProjectPaymentsListErrors[keyof ProjectPaymentsListErrors];
+
+export type ProjectPaymentsListResponses = {
+    /**
+     * OK
+     */
+    200: PaginatedProjectPayment;
+};
+
+export type ProjectPaymentsListResponse = ProjectPaymentsListResponses[keyof ProjectPaymentsListResponses];
+
+export type ProjectPaymentsCreateData = {
+    body: ProjectPaymentWritable;
+    path: {
+        project: number;
+    };
+    query?: never;
+    url: '/projects/{project}/payments';
+};
+
+export type ProjectPaymentsCreateErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type ProjectPaymentsCreateError = ProjectPaymentsCreateErrors[keyof ProjectPaymentsCreateErrors];
+
+export type ProjectPaymentsCreateResponses = {
+    /**
+     * Created
+     */
+    201: ProjectPayment;
+};
+
+export type ProjectPaymentsCreateResponse = ProjectPaymentsCreateResponses[keyof ProjectPaymentsCreateResponses];
+
+export type ProjectPaymentsDeleteData = {
+    body?: never;
+    path: {
+        project: number;
+        payment: number;
+    };
+    query?: never;
+    url: '/projects/{project}/payments/{payment}';
+};
+
+export type ProjectPaymentsDeleteErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type ProjectPaymentsDeleteError = ProjectPaymentsDeleteErrors[keyof ProjectPaymentsDeleteErrors];
+
+export type ProjectPaymentsDeleteResponses = {
+    /**
+     * No Content
+     */
+    204: void;
+};
+
+export type ProjectPaymentsDeleteResponse = ProjectPaymentsDeleteResponses[keyof ProjectPaymentsDeleteResponses];
+
+export type ProjectPaymentsReadData = {
+    body?: never;
+    headers?: {
+        /**
+         * Succeeds if the server's resource matches one of the passed values.
+         */
+        'If-Match'?: Array<string> | null;
+        /**
+         * Succeeds if the server's resource matches none of the passed values. On writes, the special value * may be used to match any existing value.
+         */
+        'If-None-Match'?: Array<string> | null;
+        /**
+         * Succeeds if the server's resource date is more recent than the passed date.
+         */
+        'If-Modified-Since'?: string;
+        /**
+         * Succeeds if the server's resource date is older or the same as the passed date.
+         */
+        'If-Unmodified-Since'?: string;
+    };
+    path: {
+        project: number;
+        payment: number;
+    };
+    query?: never;
+    url: '/projects/{project}/payments/{payment}';
+};
+
+export type ProjectPaymentsReadErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type ProjectPaymentsReadError = ProjectPaymentsReadErrors[keyof ProjectPaymentsReadErrors];
+
+export type ProjectPaymentsReadResponses = {
+    /**
+     * OK
+     */
+    200: ProjectPaymentReadBody;
+};
+
+export type ProjectPaymentsReadResponse = ProjectPaymentsReadResponses[keyof ProjectPaymentsReadResponses];
+
+export type PatchProjectPaymentsReadData = {
+    body: Array<JsonPatchOp> | null;
+    path: {
+        project: number;
+        payment: number;
+    };
+    query?: never;
+    url: '/projects/{project}/payments/{payment}';
+};
+
+export type PatchProjectPaymentsReadErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type PatchProjectPaymentsReadError = PatchProjectPaymentsReadErrors[keyof PatchProjectPaymentsReadErrors];
+
+export type PatchProjectPaymentsReadResponses = {
+    /**
+     * OK
+     */
+    200: ProjectPayment;
+};
+
+export type PatchProjectPaymentsReadResponse = PatchProjectPaymentsReadResponses[keyof PatchProjectPaymentsReadResponses];
+
+export type ProjectPaymentsUpdateData = {
+    body: ProjectPaymentReadBodyWritable;
+    path: {
+        project: number;
+        payment: number;
+    };
+    query?: never;
+    url: '/projects/{project}/payments/{payment}';
+};
+
+export type ProjectPaymentsUpdateErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type ProjectPaymentsUpdateError = ProjectPaymentsUpdateErrors[keyof ProjectPaymentsUpdateErrors];
+
+export type ProjectPaymentsUpdateResponses = {
+    /**
+     * OK
+     */
+    200: ProjectPayment;
+};
+
+export type ProjectPaymentsUpdateResponse = ProjectPaymentsUpdateResponses[keyof ProjectPaymentsUpdateResponses];
 
 export type SharesListData = {
     body?: never;

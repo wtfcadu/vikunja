@@ -1650,6 +1650,17 @@ export type ProjectFinanceReadBody = {
     readonly updated?: string;
 };
 
+export type ProjectOverview = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * Every project the requesting user owns.
+     */
+    items?: Array<ProjectOverviewItem> | null;
+};
+
 export type ProjectOverviewItem = {
     /**
      * The client the project is for.
@@ -4523,6 +4534,13 @@ export type ProjectFinanceReadBodyWritable = {
     fee?: number;
 };
 
+export type ProjectOverviewWritable = {
+    /**
+     * Every project the requesting user owns.
+     */
+    items?: Array<ProjectOverviewItem> | null;
+};
+
 export type ProjectPaymentWritable = {
     /**
      * The amount paid in minor units of the project's currency (pence, cents).
@@ -7294,7 +7312,7 @@ export type ProjectOverviewListResponses = {
     /**
      * OK
      */
-    200: Array<ProjectOverviewItem> | null;
+    200: ProjectOverview;
 };
 
 export type ProjectOverviewListResponse = ProjectOverviewListResponses[keyof ProjectOverviewListResponses];

@@ -21,7 +21,7 @@ services:
       VIKUNJA_SERVICE_SECRET: "change-me-to-a-long-random-string"
       VIKUNJA_SERVICE_TIMEZONE: "Europe/Minsk"
       # Turn this off after you and your workers have made accounts,
-      # then add new people by invite link from the admin pages.
+      # (switch it back on for a moment when a new worker joins).
       VIKUNJA_SERVICE_ENABLEREGISTRATION: "true"
       VIKUNJA_DATABASE_TYPE: "sqlite"
       VIKUNJA_DATABASE_PATH: "/db/vikunja.db"

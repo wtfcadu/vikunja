@@ -2937,3 +2937,61 @@ func (err ErrUserDataExportDoesNotExist) HTTPError() web.HTTPError {
 		Message:  "No user data export found.",
 	}
 }
+
+// ===============
+// Project finance
+// ===============
+
+// ErrProjectPaymentDoesNotExist represents an error where a project payment does not exist.
+type ErrProjectPaymentDoesNotExist struct {
+	PaymentID int64
+}
+
+// IsErrProjectPaymentDoesNotExist checks if an error is ErrProjectPaymentDoesNotExist.
+func IsErrProjectPaymentDoesNotExist(err error) bool {
+	_, ok := err.(*ErrProjectPaymentDoesNotExist)
+	return ok
+}
+
+func (err *ErrProjectPaymentDoesNotExist) Error() string {
+	return fmt.Sprintf("Project payment does not exist [PaymentID: %d]", err.PaymentID)
+}
+
+// ErrCodeProjectPaymentDoesNotExist holds the unique world-error code of this error
+const ErrCodeProjectPaymentDoesNotExist = 25001
+
+// HTTPError holds the http error description
+func (err *ErrProjectPaymentDoesNotExist) HTTPError() web.HTTPError {
+	return web.HTTPError{
+		HTTPCode: http.StatusNotFound,
+		Code:     ErrCodeProjectPaymentDoesNotExist,
+		Message:  "This payment does not exist.",
+	}
+}
+
+// ErrInvalidCurrency represents an error where a currency code is not three letters.
+type ErrInvalidCurrency struct {
+	Currency string
+}
+
+// IsErrInvalidCurrency checks if an error is ErrInvalidCurrency.
+func IsErrInvalidCurrency(err error) bool {
+	_, ok := err.(*ErrInvalidCurrency)
+	return ok
+}
+
+func (err *ErrInvalidCurrency) Error() string {
+	return fmt.Sprintf("Invalid currency code [Currency: %s]", err.Currency)
+}
+
+// ErrCodeInvalidCurrency holds the unique world-error code of this error
+const ErrCodeInvalidCurrency = 25002
+
+// HTTPError holds the http error description
+func (err *ErrInvalidCurrency) HTTPError() web.HTTPError {
+	return web.HTTPError{
+		HTTPCode: http.StatusBadRequest,
+		Code:     ErrCodeInvalidCurrency,
+		Message:  "The currency must be a three-letter code such as GBP, EUR or USD.",
+	}
+}

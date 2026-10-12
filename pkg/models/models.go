@@ -77,6 +77,8 @@ func GetTables() []interface{} {
 		&TimeEntry{},
 		&UserInviteLink{},
 		&UserInviteLinkTeam{},
+		&ProjectFinance{},
+		&ProjectPayment{},
 	}
 }
 

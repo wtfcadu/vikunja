@@ -1,0 +1,12 @@
+- project_id: 1
+  client: Acme Studio
+  currency: GBP
+  fee: 100000
+  created: 2018-12-01 15:13:12
+  updated: 2018-12-02 15:13:12
+- project_id: 11
+  client: Other Client
+  currency: EUR
+  fee: 50000
+  created: 2018-12-01 15:13:12
+  updated: 2018-12-02 15:13:12

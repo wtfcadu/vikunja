@@ -1,0 +1,24 @@
+- id: 1
+  project_id: 1
+  amount: 30000
+  paid_at: 2018-12-05 10:00:00
+  note: Deposit
+  created_by_id: 1
+  created: 2018-12-05 15:13:12
+  updated: 2018-12-05 15:13:12
+- id: 2
+  project_id: 1
+  amount: 20000
+  paid_at: 2018-12-10 10:00:00
+  note: Second payment
+  created_by_id: 1
+  created: 2018-12-10 15:13:12
+  updated: 2018-12-10 15:13:12
+- id: 3
+  project_id: 11
+  amount: 10000
+  paid_at: 2018-12-10 10:00:00
+  note: Payment on someone else's project
+  created_by_id: 6
+  created: 2018-12-10 15:13:12
+  updated: 2018-12-10 15:13:12

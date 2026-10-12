@@ -1,0 +1,199 @@
+name: Studio build
+
+# Builds, tests and packages this fork. Every run writes its logs to the
+# ci-results branch as results/<commit>.log so they can be read without the
+# Actions UI. When everything passes, a Docker image is pushed to
+# ghcr.io/<owner>/vikunja:<branch> (and :latest for main).
+
+on:
+  push:
+    branches:
+      - studio
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  packages: write
+
+concurrency:
+  group: studio-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      ok: ${{ steps.summary.outputs.ok }}
+    env:
+      CYPRESS_INSTALL_BINARY: 0
+      PUPPETEER_SKIP_DOWNLOAD: true
+      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Set up Go
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+
+      - name: Install mage
+        run: go install github.com/magefile/mage@v1.17.2
+
+      - uses: ./.github/actions/setup-frontend
+
+      - name: Prepare logs
+        run: |
+          mkdir -p "$RUNNER_TEMP/logs"
+          mkdir -p frontend/dist && touch frontend/dist/index.html
+
+      - name: Build backend
+        id: backend
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          mage build 2>&1 | tee "$RUNNER_TEMP/logs/1-backend-build.log"
+
+      - name: Vet backend
+        id: vet
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          go vet ./pkg/models/ ./pkg/migration/ ./pkg/routes/... 2>&1 | tee "$RUNNER_TEMP/logs/2-vet.log"
+
+      - name: Regenerate frontend API client
+        id: client
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          mage generate:frontend-client 2>&1 | tee "$RUNNER_TEMP/logs/3-frontend-client.log"
+          git status --short frontend/src/client/generated | tee -a "$RUNNER_TEMP/logs/3-frontend-client.log"
+
+      - name: Backend feature tests
+        id: tests
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          mage test:feature 2>&1 | tee "$RUNNER_TEMP/logs/4-backend-tests.log"
+
+      - name: Frontend typecheck
+        id: typecheck
+        continue-on-error: true
+        working-directory: frontend
+        run: |
+          set -o pipefail
+          pnpm typecheck 2>&1 | tee "$RUNNER_TEMP/logs/5-frontend-typecheck.log"
+
+      - name: Frontend lint
+        id: lint
+        continue-on-error: true
+        working-directory: frontend
+        run: |
+          set -o pipefail
+          pnpm lint 2>&1 | tee "$RUNNER_TEMP/logs/6-frontend-lint.log"
+
+      - name: Frontend unit tests
+        id: unit
+        continue-on-error: true
+        working-directory: frontend
+        run: |
+          set -o pipefail
+          pnpm test:unit --run 2>&1 | tee "$RUNNER_TEMP/logs/7-frontend-unit.log"
+
+      - name: Summary
+        id: summary
+        if: always()
+        run: |
+          {
+            echo "commit: ${GITHUB_SHA}"
+            echo "branch: ${GITHUB_REF_NAME}"
+            echo "backend-build: ${{ steps.backend.outcome }}"
+            echo "vet: ${{ steps.vet.outcome }}"
+            echo "frontend-client: ${{ steps.client.outcome }}"
+            echo "backend-tests: ${{ steps.tests.outcome }}"
+            echo "frontend-typecheck: ${{ steps.typecheck.outcome }}"
+            echo "frontend-lint: ${{ steps.lint.outcome }}"
+            echo "frontend-unit: ${{ steps.unit.outcome }}"
+          } > "$RUNNER_TEMP/logs/0-summary.txt"
+          cat "$RUNNER_TEMP/logs/0-summary.txt"
+          if grep -qv ": success$" <(grep -v "^commit\|^branch" "$RUNNER_TEMP/logs/0-summary.txt"); then
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Save regenerated frontend client
+        if: always() && steps.client.outcome == 'success'
+        run: |
+          if [ -n "$(git status --porcelain frontend/src/client/generated)" ]; then
+            git config user.name "studio-build"
+            git config user.email "studio-build@users.noreply.github.com"
+            git add frontend/src/client/generated
+            git commit -m "chore: regenerate frontend api client [skip ci]"
+            git push origin "HEAD:${GITHUB_REF_NAME}" || echo "client push failed (branch moved on)"
+          fi
+
+      - name: Publish logs
+        if: always()
+        run: |
+          set -e
+          out="$RUNNER_TEMP/results"
+          git config --global user.name "studio-build"
+          git config --global user.email "studio-build@users.noreply.github.com"
+          if git ls-remote --exit-code origin ci-results >/dev/null 2>&1; then
+            git clone --depth 1 --branch ci-results "https://x-access-token:${{ github.token }}@github.com/${GITHUB_REPOSITORY}.git" "$out"
+          else
+            mkdir -p "$out" && cd "$out" && git init -b ci-results && \
+              git remote add origin "https://x-access-token:${{ github.token }}@github.com/${GITHUB_REPOSITORY}.git" && cd -
+          fi
+          mkdir -p "$out/results"
+          # Keep each log short enough to read: the head and the tail of every step.
+          {
+            for f in "$RUNNER_TEMP"/logs/*; do
+              echo "===== $(basename "$f") ====="
+              lines=$(wc -l < "$f")
+              if [ "$lines" -gt 400 ]; then
+                head -n 60 "$f"
+                echo "... ($lines lines, middle cut) ..."
+                grep -nE "FAIL|panic|Error|error|undefined|cannot|--- FAIL" "$f" | head -n 200 || true
+                echo "... tail ..."
+                tail -n 120 "$f"
+              else
+                cat "$f"
+              fi
+            done
+          } > "$out/results/${GITHUB_SHA}.log"
+          cp "$out/results/${GITHUB_SHA}.log" "$out/results/latest-${GITHUB_REF_NAME}.log"
+          cd "$out"
+          git add results
+          git commit -m "results for ${GITHUB_SHA}" || true
+          git push origin HEAD:ci-results
+
+  docker:
+    needs: build
+    if: needs.build.outputs.ok == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+      - name: Image name
+        id: name
+        run: echo "image=ghcr.io/$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')/vikunja" >> "$GITHUB_OUTPUT"
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/amd64
+          push: true
+          build-args: RELEASE_VERSION=studio-${{ github.sha }}
+          tags: |
+            ${{ steps.name.outputs.image }}:${{ github.ref_name }}
+            ${{ github.ref_name == 'main' && format('{0}:latest', steps.name.outputs.image) || '' }}

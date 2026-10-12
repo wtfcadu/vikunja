@@ -1525,6 +1525,11 @@ func (p *Project) Delete(s *xorm.Session, a web.Auth) (err error) {
 		return
 	}
 
+	err = deleteProjectFinanceData(s, p.ID)
+	if err != nil {
+		return
+	}
+
 	_, err = s.Where("project_id = ?", p.ID).Delete(&TeamProject{})
 	if err != nil {
 		return

@@ -1,379 +1,110 @@
 ===== 0-summary.txt =====
-commit: b41edf7117ad06aa6ac1312915013ac9fbed030f
+commit: 029c76c29399086ce7fb18681d7782c9b87d56d3
 branch: studio
 backend-build: success
 vet: success
 frontend-client: success
-backend-tests: failure
+backend-tests: success
 frontend-typecheck: success
 frontend-lint: success
 frontend-unit: success
 ===== 1-backend-build.log =====
-go: downloading github.com/iancoleman/strcase v0.3.0
-go: downloading github.com/asaskevich/govalidator v0.0.0-20230301143203-a9d515a09cc2
-go: downloading github.com/danielgtaylor/huma/v2 v2.39.1
-go: downloading github.com/labstack/echo/v5 v5.3.1
-go: downloading github.com/tkuchiki/go-timezone v0.2.3
-go: downloading xorm.io/xorm v1.4.1
-go: downloading github.com/c2h5oh/datasize v0.0.0-20231215233829-aa82cc1e6500
-go: downloading github.com/spf13/viper v1.21.0
-go: downloading github.com/go-sql-driver/mysql v1.10.1
-go: downloading github.com/go-testfixtures/testfixtures/v3 v3.19.0
-go: downloading github.com/jackc/pgx/v5 v5.11.0
-go: downloading github.com/mattn/go-sqlite3 v1.14.52
-go: downloading github.com/prometheus/client_golang v1.24.1
-go: downloading github.com/stretchr/testify v1.12.1
-go: downloading xorm.io/builder v0.3.13
-go: downloading github.com/ThreeDotsLabs/watermill v1.5.3
-go: downloading github.com/getsentry/sentry-go v0.49.0
-go: downloading github.com/google/uuid v1.6.0
-go: downloading github.com/wneessen/go-mail v0.8.1
-go: downloading github.com/dustinkirkland/golang-petname v0.0.0-20240422154211-76c06c4bde6b
-go: downloading github.com/golang-jwt/jwt/v5 v5.3.1
-go: downloading github.com/coreos/go-oidc/v3 v3.21.0
-go: downloading golang.org/x/oauth2 v0.37.0
-go: downloading github.com/gabriel-vasile/mimetype v1.4.15
-go: downloading github.com/bbrks/go-blurhash v1.2.0
-go: downloading github.com/disintegration/imaging v1.6.2
-go: downloading golang.org/x/image v0.46.0
-go: downloading golang.org/x/text v0.42.0
-go: downloading github.com/gocarina/gocsv v0.0.0-20231116093920-b87c2d0e983a
-go: downloading github.com/adlio/trello v1.12.0
-go: downloading github.com/hashicorp/go-version v1.9.0
-go: downloading dario.cat/mergo v1.0.2
-go: downloading github.com/ganigeorgiev/fexpr v0.6.0
-go: downloading github.com/jszwedko/go-datemath v0.1.1-0.20230526204004-640a500621d6
-go: downloading github.com/jinzhu/copier v0.4.0
-go: downloading github.com/huandu/go-clone/generic v1.7.3
-go: downloading github.com/huandu/go-clone v1.7.3
-go: downloading golang.org/x/crypto v0.57.0
-go: downloading golang.org/x/net v0.59.0
-go: downloading github.com/JohannesKaufmann/dom v0.3.1
-go: downloading github.com/JohannesKaufmann/html-to-markdown/v2 v2.5.2
-go: downloading github.com/yuin/goldmark/v2 v2.1.3
-go: downloading github.com/gorilla/feeds v1.2.0
-go: downloading github.com/microcosm-cc/bluemonday v1.0.27
-go: downloading github.com/pquerna/otp v1.5.0
-go: downloading github.com/labstack/echo/v4 v4.15.4
-go: downloading github.com/danielgtaylor/shorthand/v2 v2.4.0
-go: downloading github.com/evanphx/json-patch/v5 v5.9.11
-go: downloading github.com/fsnotify/fsnotify v1.9.0
-go: downloading github.com/go-viper/mapstructure/v2 v2.4.0
-go: downloading github.com/sagikazarmark/locafero v0.11.0
-go: downloading github.com/spf13/afero v1.15.0
-go: downloading github.com/spf13/cast v1.10.0
-go: downloading github.com/spf13/pflag v1.0.10
-go: downloading filippo.io/edwards25519 v1.2.0
-go: downloading github.com/goccy/go-yaml v1.19.2
-go: downloading golang.org/x/sync v0.23.0
-go: downloading github.com/beorn7/perks v1.0.1
-go: downloading github.com/cespare/xxhash/v2 v2.3.0
-go: downloading github.com/prometheus/client_model v0.6.2
-go: downloading github.com/prometheus/common v0.70.1
-go: downloading github.com/prometheus/procfs v0.21.1
-go: downloading google.golang.org/protobuf v1.36.11
-go: downloading github.com/redis/go-redis/v9 v9.22.0
-go: downloading github.com/lib/pq v1.12.3
-go: downloading github.com/lithammer/shortuuid/v3 v3.0.7
-go: downloading github.com/oklog/ulid v1.3.1
-go: downloading github.com/pkg/errors v0.9.1
-go: downloading github.com/go-chi/chi/v5 v5.3.1
-go: downloading github.com/cenkalti/backoff/v5 v5.0.3
-go: downloading github.com/sony/gobreaker v1.0.0
-go: downloading code.dny.dev/ssrf v0.3.0
-go: downloading golang.org/x/sys v0.48.0
-go: downloading github.com/robfig/cron/v3 v3.0.1
-go: downloading github.com/aws/aws-sdk-go-v2 v1.47.1
-go: downloading github.com/aws/aws-sdk-go-v2/config v1.33.6
-go: downloading github.com/aws/aws-sdk-go-v2/credentials v1.20.6
-go: downloading github.com/aws/aws-sdk-go-v2/service/s3 v1.114.0
-go: downloading github.com/aws/smithy-go v1.28.2
-go: downloading github.com/schollz/progressbar/v3 v3.19.1
-go: downloading github.com/go-jose/go-jose/v4 v4.1.4
-go: downloading golang.org/x/time v0.15.0
-go: downloading github.com/go-ldap/ldap/v3 v3.4.14
-go: downloading github.com/swaggo/swag v1.16.6
-go: downloading github.com/aymerick/douceur v0.2.0
-go: downloading github.com/boombuler/barcode v1.0.1
-go: downloading github.com/syndtr/goleveldb v1.0.0
-go: downloading github.com/labstack/gommon v0.5.0
-go: downloading github.com/sourcegraph/conc v0.3.1-0.20240121214520-5f936abd7ae8
-go: downloading github.com/subosito/gotenv v1.6.0
-go: downloading github.com/pelletier/go-toml/v2 v2.4.3
-go: downloading go.yaml.in/yaml/v3 v3.0.5
-go: downloading github.com/danielgtaylor/mexpr v1.10.1
-go: downloading github.com/fxamacker/cbor/v2 v2.9.2
-go: downloading github.com/jackc/pgpassfile v1.0.0
-go: downloading github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761
-go: downloading github.com/jackc/puddle/v2 v2.2.2
-go: downloading github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822
-go: downloading github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.20.1
-go: downloading github.com/aws/aws-sdk-go-v2/service/signin v1.10.1
-go: downloading github.com/aws/aws-sdk-go-v2/service/sso v1.38.1
-go: downloading github.com/aws/aws-sdk-go-v2/service/ssooidc v1.43.1
-go: downloading github.com/aws/aws-sdk-go-v2/service/sts v1.51.1
-go: downloading github.com/mitchellh/colorstring v0.0.0-20190213212951-d06e56a500db
-go: downloading github.com/rivo/uniseg v0.4.7
-go: downloading golang.org/x/term v0.46.0
-go: downloading github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.7.20
-go: downloading github.com/aws/aws-sdk-go-v2/internal/configsources v1.5.4
-go: downloading github.com/aws/aws-sdk-go-v2/internal/v4a v1.5.4
-go: downloading github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding v1.13.19
-go: downloading github.com/aws/aws-sdk-go-v2/service/internal/checksum v1.11.5
-go: downloading github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.14.4
-go: downloading github.com/aws/aws-sdk-go-v2/service/internal/s3shared v1.20.4
-go: downloading github.com/Azure/go-ntlmssp v0.1.1
-go: downloading github.com/go-asn1-ber/asn1-ber v1.5.8
-go: downloading github.com/gorilla/css v1.0.1
-go: downloading github.com/KyleBanks/depth v1.2.1
-go: downloading github.com/go-openapi/spec v0.20.4
-go: downloading golang.org/x/tools v0.49.0
-go: downloading github.com/mattn/go-colorable v0.1.15
-go: downloading github.com/mattn/go-isatty v0.0.23
-go: downloading github.com/valyala/fasttemplate v1.2.2
-go: downloading github.com/x448/float16 v0.8.4
-go: downloading go.uber.org/atomic v1.11.0
-go: downloading github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.8.4
-go: downloading github.com/go-openapi/jsonpointer v0.21.0
-go: downloading github.com/go-openapi/jsonreference v0.20.3
-go: downloading github.com/go-openapi/swag v0.23.0
-go: downloading github.com/valyala/bytebufferpool v1.0.0
-go: downloading github.com/golang/snappy v0.0.4
-go: downloading golang.org/x/mod v0.41.0
-go: downloading github.com/mailru/easyjson v0.7.7
-go: downloading gopkg.in/yaml.v3 v3.0.1
-go: downloading github.com/josharian/intern v1.0.0
-/opt/hostedtoolcache/go/1.27.0/x64/bin/go build -v=false -tags osusergo  -ldflags -s -w -X "code.vikunja.io/api/pkg/version.Version=b41edf7117" -X "main.Tags=osusergo " -o vikunja
+/opt/hostedtoolcache/go/1.27.0/x64/bin/go build -v=false -tags osusergo  -ldflags -s -w -X "code.vikunja.io/api/pkg/version.Version=029c76c293" -X "main.Tags=osusergo " -o vikunja
 
-go: downloading github.com/olekukonko/tablewriter v1.1.5
-go: downloading github.com/spf13/cobra v1.10.2
-go: downloading github.com/fatih/color v1.19.0
-go: downloading src.techknowlogick.com/xormigrate v1.7.1
-go: downloading github.com/hhsnopek/etag v0.0.0-20171206181245-aea95f647346
-go: downloading github.com/labstack/echo-jwt/v5 v5.0.2
-go: downloading github.com/ulule/limiter/v3 v3.11.2
-go: downloading mvdan.cc/xurls/v2 v2.6.0
-go: downloading github.com/traefik/yaegi v0.16.1
-go: downloading github.com/coder/websocket v1.8.15
-go: downloading github.com/google/jsonschema-go v0.4.3
-go: downloading github.com/modelcontextprotocol/go-sdk v1.6.1
-go: downloading github.com/go-vikunja/caldav-go v3.0.1-0.20260914150516-75a300de4623+incompatible
-go: downloading github.com/mattn/go-runewidth v0.0.24
-go: downloading github.com/olekukonko/errors v1.2.0
-go: downloading github.com/olekukonko/ll v0.1.6
-go: downloading github.com/arran4/golang-ical v0.3.6
-go: downloading github.com/yosida95/uritemplate/v3 v3.0.2
-go: downloading github.com/beevik/etree v1.1.0
-go: downloading github.com/laurent22/ical-go v0.1.1-0.20181107184520-7e5d6ade8eef
-go: downloading github.com/clipperhouse/uax29/v2 v2.7.0
-go: downloading github.com/clipperhouse/displaywidth v0.11.0
-go: downloading github.com/segmentio/encoding v0.5.4
-go: downloading github.com/olekukonko/cat v0.0.0-20250911104152-50322a0618f6
-go: downloading github.com/segmentio/asm v1.1.3
 ===== 2-vet.log =====
-go: downloading github.com/jaswdr/faker/v2 v2.9.1
-go: downloading gopkg.in/d4l3k/messagediff.v1 v1.2.1
 ===== 3-frontend-client.log =====
-Warning: unable to create schema link for type apiv2.projectFinanceReadBody : reflect: embedded type with methods not implemented if type is not first field
 $ openapi-ts
 [90m@hey-api/openapi-ts v0.99.0[39m
 
 [90m[Job 1] [39m[90m~[39m [36mGenerating...[39m
-[90m[Job 1] [39m[36m  [1] [39m/tmp/vikunja-openapi-4142646267.json
-[90m[Job 1] [39m[32m✓[39m [96m./src/client/generated[39m [90m· 4 files · 519ms[39m
+[90m[Job 1] [39m[36m  [1] [39m/tmp/vikunja-openapi-739149653.json
+[90m[Job 1] [39m[32m✓[39m [96m./src/client/generated[39m [90m· 4 files · 711ms[39m
  M frontend/src/client/generated/index.ts
- M frontend/src/client/generated/sdk.gen.ts
  M frontend/src/client/generated/types.gen.ts
 ===== 4-backend-tests.log =====
 /opt/hostedtoolcache/go/1.27.0/x64/bin/go test -v=false -p 1 -coverprofile cover.out -timeout 45m -short ./...
 
-go: downloading github.com/d4l3k/messagediff v1.2.1
 	code.vikunja.io/api		coverage: 0.0% of statements
 ?   	code.vikunja.io/api/frontend	[no test files]
-ok  	code.vikunja.io/api/pkg/audit	0.554s	coverage: 78.2% of statements
-ok  	code.vikunja.io/api/pkg/caldav	0.019s	coverage: 92.9% of statements
-ok  	code.vikunja.io/api/pkg/caldavtests	0.010s
+ok  	code.vikunja.io/api/pkg/audit	(cached)	coverage: 78.2% of statements
+ok  	code.vikunja.io/api/pkg/caldav	0.044s	coverage: 92.9% of statements
+ok  	code.vikunja.io/api/pkg/caldavtests	0.015s
 	code.vikunja.io/api/pkg/cmd		coverage: 0.0% of statements
-ok  	code.vikunja.io/api/pkg/config	0.013s	coverage: 98.0% of statements
+ok  	code.vikunja.io/api/pkg/config	0.018s	coverage: 98.0% of statements
 	code.vikunja.io/api/pkg/cron		coverage: 0.0% of statements
-ok  	code.vikunja.io/api/pkg/db	0.009s	coverage: 43.6% of statements
-ok  	code.vikunja.io/api/pkg/doctor	0.010s	coverage: 30.1% of statements
-ok  	code.vikunja.io/api/pkg/e2etests	0.010s
-ok  	code.vikunja.io/api/pkg/errorreport	0.005s	coverage: 98.2% of statements
-ok  	code.vikunja.io/api/pkg/events	0.005s	coverage: 17.6% of statements
-ok  	code.vikunja.io/api/pkg/files	0.183s	coverage: 62.5% of statements
+ok  	code.vikunja.io/api/pkg/db	(cached)	coverage: 43.6% of statements
+ok  	code.vikunja.io/api/pkg/doctor	0.015s	coverage: 30.1% of statements
+ok  	code.vikunja.io/api/pkg/e2etests	0.015s
+ok  	code.vikunja.io/api/pkg/errorreport	(cached)	coverage: 98.2% of statements
+ok  	code.vikunja.io/api/pkg/events	(cached)	coverage: 17.6% of statements
+ok  	code.vikunja.io/api/pkg/files	(cached)	coverage: 62.5% of statements
 	code.vikunja.io/api/pkg/health		coverage: 0.0% of statements
 	code.vikunja.io/api/pkg/i18n		coverage: 0.0% of statements
 	code.vikunja.io/api/pkg/initialize		coverage: 0.0% of statements
-ok  	code.vikunja.io/api/pkg/license	0.008s	coverage: 7.9% of statements
-ok  	code.vikunja.io/api/pkg/log	0.004s	coverage: 17.6% of statements
-ok  	code.vikunja.io/api/pkg/mail	0.006s	coverage: 63.7% of statements
-ok  	code.vikunja.io/api/pkg/metrics	0.004s	coverage: 7.2% of statements
-ok  	code.vikunja.io/api/pkg/migration	0.080s	coverage: 23.9% of statements
-time=2026-10-12T13:57:48.881Z level=WARN msg="reset for tests Pro features have been disabled."
-time=2026-10-12T13:57:48.885Z level=WARN msg="reset for tests Pro features have been disabled."
-time=2026-10-12T13:57:48.889Z level=WARN msg="reset for tests Pro features have been disabled."
-time=2026-10-12T13:57:48.893Z level=WARN msg="reset for tests Pro features have been disabled."
-time=2026-10-12T13:57:48.893Z level=WARN msg="reset for tests Pro features have been disabled."
-time=2026-10-12T13:57:48.893Z level=WARN msg="reset for tests Pro features have been disabled."
-time=2026-10-12T13:57:48.894Z level=WARN msg="reset for tests Pro features have been disabled."
-time=2026-10-12T13:57:49.193Z level=WARN msg="Skipping filter 1, it cannot be parsed: Task filter value is invalid [Value: , Field: done]"
-time=2026-10-12T13:57:49.670Z level=WARN msg="Skipping filter 9995, it cannot be parsed: Task Field is invalid [TaskField: bogus_field]"
-time=2026-10-12T13:57:49.713Z level=WARN msg="reset for tests Pro features have been disabled."
-time=2026-10-12T13:57:49.717Z level=ERROR msg="Got response with status 404 from webhook 9: "
-time=2026-10-12T13:57:49.729Z level=ERROR msg="Invalid TOTP credentials provided for user 2"
-time=2026-10-12T13:57:49.729Z level=ERROR msg="Invalid TOTP credentials provided for user 2"
-time=2026-10-12T13:57:49.729Z level=ERROR msg="Invalid TOTP credentials provided for user 2"
-time=2026-10-12T13:57:49.729Z level=ERROR msg="Invalid TOTP credentials provided for user 2"
-time=2026-10-12T13:57:49.729Z level=ERROR msg="Invalid TOTP credentials provided for user 2"
-time=2026-10-12T13:57:49.729Z level=ERROR msg="Invalid TOTP credentials provided for user 2"
-time=2026-10-12T13:57:49.729Z level=ERROR msg="Invalid TOTP credentials provided for user 2"
-time=2026-10-12T13:57:49.729Z level=ERROR msg="Invalid TOTP credentials provided for user 2"
-time=2026-10-12T13:57:49.729Z level=ERROR msg="Invalid TOTP credentials provided for user 2"
-time=2026-10-12T13:57:49.729Z level=ERROR msg="Invalid TOTP credentials provided for user 2"
-time=2026-10-12T13:57:49.729Z level=INFO msg="Blocking user account 2 after 10 failed TOTP password attempts"
-time=2026-10-12T13:57:49.935Z level=WARN msg="Could not determine mail domain from public URL, falling back to hostname \"runnervmmprz5\""
-time=2026-10-12T13:57:49.935Z level=WARN msg="Could not determine mail domain from public URL, falling back to hostname \"runnervmmprz5\""
-time=2026-10-12T13:57:50.201Z level=INFO msg="Re-parenting project 12 (Test12) from non-existent parent 27 to top level"
-time=2026-10-12T13:57:50.201Z level=INFO msg="Re-parenting project 39 (Orphaned project with deleted parent) from non-existent parent 999999 to top level"
-time=2026-10-12T13:57:50.205Z level=INFO msg="[dry-run] Would re-parent project 12 (Test12) from non-existent parent 27 to top level"
-time=2026-10-12T13:57:50.205Z level=INFO msg="[dry-run] Would re-parent project 39 (Orphaned project with deleted parent) from non-existent parent 999999 to top level"
---- FAIL: TestProjectFinance_ReadAndUpdate (0.02s)
-    --- FAIL: TestProjectFinance_ReadAndUpdate/read_existing (0.00s)
-        project_finance_test.go:84: 
-            	Error Trace:	/home/runner/work/vikunja/vikunja/pkg/models/project_finance_test.go:84
-            	Error:      	Not equal: 
-            	            	expected: "Acme Studio"
-            	            	actual  : ""
-            	            	
-            	            	Diff:
-            	            	--- Expected
-            	            	+++ Actual
-            	            	@@ -1 +1 @@
-            	            	-Acme Studio
-            	            	+
-            	Test:       	TestProjectFinance_ReadAndUpdate/read_existing
-        project_finance_test.go:85: 
-            	Error Trace:	/home/runner/work/vikunja/vikunja/pkg/models/project_finance_test.go:85
-            	Error:      	Not equal: 
-            	            	expected: "GBP"
-            	            	actual  : ""
-            	            	
-            	            	Diff:
-            	            	--- Expected
-            	            	+++ Actual
-            	            	@@ -1 +1 @@
-            	            	-GBP
-            	            	+
-            	Test:       	TestProjectFinance_ReadAndUpdate/read_existing
-        project_finance_test.go:86: 
-            	Error Trace:	/home/runner/work/vikunja/vikunja/pkg/models/project_finance_test.go:86
-            	Error:      	Not equal: 
-            	            	expected: 100000
-            	            	actual  : 0
-            	Test:       	TestProjectFinance_ReadAndUpdate/read_existing
---- FAIL: TestProjectPayment (0.00s)
-    --- FAIL: TestProjectPayment/list_payments_newest_first (0.00s)
-        project_finance_test.go:148: 
-            	Error Trace:	/home/runner/work/vikunja/vikunja/pkg/models/project_finance_test.go:148
-            	Error:      	Not equal: 
-            	            	expected: 2
-            	            	actual  : 0
-            	Test:       	TestProjectPayment/list_payments_newest_first
-        project_finance_test.go:149: 
-            	Error Trace:	/home/runner/work/vikunja/vikunja/pkg/models/project_finance_test.go:149
-            	Error:      	Not equal: 
-            	            	expected: 2
-            	            	actual  : 0
-            	Test:       	TestProjectPayment/list_payments_newest_first
-panic: runtime error: index out of range [0] with length 0 [recovered, repanicked]
-
-goroutine 5594 [running]:
-testing.tRunner.func1.2({0x2bbd378, 0x33e57eae5d58})
-	/opt/hostedtoolcache/go/1.27.0/x64/src/testing/testing.go:2123 +0x232
-testing.tRunner.func1()
-	/opt/hostedtoolcache/go/1.27.0/x64/src/testing/testing.go:2126 +0x329
-panic({0x2bbd378?, 0x33e57eae5d58?})
-	/opt/hostedtoolcache/go/1.27.0/x64/src/runtime/panic.go:859 +0x125
-code.vikunja.io/api/pkg/models.TestProjectPayment.func1(0x33e57edca488)
-	/home/runner/work/vikunja/vikunja/pkg/models/project_finance_test.go:150 +0x2ad
-testing.tRunner(0x33e57edca488, 0x33e57f116010)
-	/opt/hostedtoolcache/go/1.27.0/x64/src/testing/testing.go:2193 +0xea
-created by testing.(*T).Run in goroutine 5593
-	/opt/hostedtoolcache/go/1.27.0/x64/src/testing/testing.go:2258 +0x4d4
-FAIL	code.vikunja.io/api/pkg/models	1.519s
-ok  	code.vikunja.io/api/pkg/modules/auth	0.009s	coverage: 41.3% of statements
-ok  	code.vikunja.io/api/pkg/modules/auth/ldap	0.024s	coverage: 15.9% of statements
-ok  	code.vikunja.io/api/pkg/modules/auth/oauth2server	0.008s	coverage: 14.9% of statements
-ok  	code.vikunja.io/api/pkg/modules/auth/openid	27.212s	coverage: 67.0% of statements
-ok  	code.vikunja.io/api/pkg/modules/avatar	0.007s	coverage: 0.0% of statements
+ok  	code.vikunja.io/api/pkg/license	(cached)	coverage: 7.9% of statements
+ok  	code.vikunja.io/api/pkg/log	(cached)	coverage: 17.6% of statements
+ok  	code.vikunja.io/api/pkg/mail	(cached)	coverage: 63.7% of statements
+ok  	code.vikunja.io/api/pkg/metrics	(cached)	coverage: 7.2% of statements
+ok  	code.vikunja.io/api/pkg/migration	0.158s	coverage: 23.9% of statements
+ok  	code.vikunja.io/api/pkg/models	10.253s	coverage: 69.1% of statements
+ok  	code.vikunja.io/api/pkg/modules/auth	0.013s	coverage: 41.3% of statements
+ok  	code.vikunja.io/api/pkg/modules/auth/ldap	0.049s	coverage: 15.9% of statements
+ok  	code.vikunja.io/api/pkg/modules/auth/oauth2server	0.012s	coverage: 14.9% of statements
+ok  	code.vikunja.io/api/pkg/modules/auth/openid	27.299s	coverage: 67.0% of statements
+ok  	code.vikunja.io/api/pkg/modules/avatar	(cached)	coverage: 0.0% of statements
 	code.vikunja.io/api/pkg/modules/avatar/botmarble		coverage: 0.0% of statements
 	code.vikunja.io/api/pkg/modules/avatar/empty		coverage: 0.0% of statements
-ok  	code.vikunja.io/api/pkg/modules/avatar/gravatar	0.009s	coverage: 66.7% of statements
-ok  	code.vikunja.io/api/pkg/modules/avatar/initials	0.007s	coverage: 83.6% of statements
+ok  	code.vikunja.io/api/pkg/modules/avatar/gravatar	(cached)	coverage: 66.7% of statements
+ok  	code.vikunja.io/api/pkg/modules/avatar/initials	(cached)	coverage: 83.6% of statements
 	code.vikunja.io/api/pkg/modules/avatar/ldap		coverage: 0.0% of statements
 	code.vikunja.io/api/pkg/modules/avatar/marble		coverage: 0.0% of statements
 	code.vikunja.io/api/pkg/modules/avatar/openid		coverage: 0.0% of statements
-ok  	code.vikunja.io/api/pkg/modules/avatar/upload	0.007s	coverage: 22.7% of statements
+ok  	code.vikunja.io/api/pkg/modules/avatar/upload	(cached)	coverage: 22.7% of statements
 ?   	code.vikunja.io/api/pkg/modules/background	[no test files]
 	code.vikunja.io/api/pkg/modules/background/handler		coverage: 0.0% of statements
 	code.vikunja.io/api/pkg/modules/background/unsplash		coverage: 0.0% of statements
 	code.vikunja.io/api/pkg/modules/background/upload		coverage: 0.0% of statements
-ok  	code.vikunja.io/api/pkg/modules/dump	0.012s	coverage: 6.3% of statements
-ok  	code.vikunja.io/api/pkg/modules/humabridge	0.004s	coverage: 95.7% of statements
-ok  	code.vikunja.io/api/pkg/modules/imageutils	0.004s	coverage: 80.0% of statements
-ok  	code.vikunja.io/api/pkg/modules/keyvalue	0.003s	coverage: 47.3% of statements
+ok  	code.vikunja.io/api/pkg/modules/dump	0.017s	coverage: 6.3% of statements
+ok  	code.vikunja.io/api/pkg/modules/humabridge	(cached)	coverage: 95.7% of statements
+ok  	code.vikunja.io/api/pkg/modules/imageutils	(cached)	coverage: 80.0% of statements
+ok  	code.vikunja.io/api/pkg/modules/keyvalue	(cached)	coverage: 47.3% of statements
 	code.vikunja.io/api/pkg/modules/keyvalue/error		coverage: 0.0% of statements
 	code.vikunja.io/api/pkg/modules/keyvalue/memory		coverage: 0.0% of statements
 	code.vikunja.io/api/pkg/modules/keyvalue/redis		coverage: 0.0% of statements
-ok  	code.vikunja.io/api/pkg/modules/mcp	0.028s	coverage: 72.3% of statements
-ok  	code.vikunja.io/api/pkg/modules/migration	12.340s	coverage: 69.1% of statements
-ok  	code.vikunja.io/api/pkg/modules/migration/csv	0.010s	coverage: 67.6% of statements
-ok  	code.vikunja.io/api/pkg/modules/migration/handler	0.104s	coverage: 57.4% of statements
-ok  	code.vikunja.io/api/pkg/modules/migration/microsoft-todo	0.009s	coverage: 42.1% of statements
-ok  	code.vikunja.io/api/pkg/modules/migration/planka	3.089s	coverage: 90.4% of statements
-ok  	code.vikunja.io/api/pkg/modules/migration/ticktick	0.009s	coverage: 70.3% of statements
-ok  	code.vikunja.io/api/pkg/modules/migration/todoist	0.012s	coverage: 44.1% of statements
-ok  	code.vikunja.io/api/pkg/modules/migration/trello	0.012s	coverage: 44.1% of statements
-ok  	code.vikunja.io/api/pkg/modules/migration/vikunja-file	0.161s	coverage: 80.9% of statements
-ok  	code.vikunja.io/api/pkg/modules/migration/wekan	0.009s	coverage: 84.6% of statements
-ok  	code.vikunja.io/api/pkg/notifications	0.035s	coverage: 80.9% of statements
+ok  	code.vikunja.io/api/pkg/modules/mcp	0.050s	coverage: 72.3% of statements
+ok  	code.vikunja.io/api/pkg/modules/migration	12.541s	coverage: 69.1% of statements
+ok  	code.vikunja.io/api/pkg/modules/migration/csv	0.014s	coverage: 67.6% of statements
+ok  	code.vikunja.io/api/pkg/modules/migration/handler	0.190s	coverage: 57.4% of statements
+ok  	code.vikunja.io/api/pkg/modules/migration/microsoft-todo	0.014s	coverage: 42.1% of statements
+ok  	code.vikunja.io/api/pkg/modules/migration/planka	3.162s	coverage: 90.4% of statements
+ok  	code.vikunja.io/api/pkg/modules/migration/ticktick	0.015s	coverage: 70.3% of statements
+ok  	code.vikunja.io/api/pkg/modules/migration/todoist	0.017s	coverage: 44.1% of statements
+ok  	code.vikunja.io/api/pkg/modules/migration/trello	0.018s	coverage: 44.1% of statements
+ok  	code.vikunja.io/api/pkg/modules/migration/vikunja-file	0.325s	coverage: 80.9% of statements
+ok  	code.vikunja.io/api/pkg/modules/migration/wekan	0.014s	coverage: 84.6% of statements
+ok  	code.vikunja.io/api/pkg/notifications	(cached)	coverage: 80.9% of statements
 	code.vikunja.io/api/pkg/plugins		coverage: 0.0% of statements
-ok  	code.vikunja.io/api/pkg/plugins/yaegi	0.021s	coverage: 79.5% of statements
+ok  	code.vikunja.io/api/pkg/plugins/yaegi	0.035s	coverage: 79.5% of statements
 	code.vikunja.io/api/pkg/red		coverage: 0.0% of statements
-ok  	code.vikunja.io/api/pkg/richtext	0.014s	coverage: 89.8% of statements
-ok  	code.vikunja.io/api/pkg/routes	0.016s	coverage: 18.1% of statements
+ok  	code.vikunja.io/api/pkg/richtext	(cached)	coverage: 89.8% of statements
+ok  	code.vikunja.io/api/pkg/routes	0.042s	coverage: 18.1% of statements
 	code.vikunja.io/api/pkg/routes/api/shared		coverage: 0.0% of statements
 	code.vikunja.io/api/pkg/routes/api/v1		coverage: 0.0% of statements
 	code.vikunja.io/api/pkg/routes/api/v1/admin		coverage: 0.0% of statements
-Warning: unable to create schema link for type apiv2.projectFinanceReadBody : reflect: embedded type with methods not implemented if type is not first field
-time=2026-10-12T13:59:06.407Z level=ERROR msg="v2: internal server error: dial tcp 127.0.0.1:6390: connect: connection refused"
-time=2026-10-12T13:59:06.407Z level=ERROR msg="v2: internal server error: dial tcp 127.0.0.1:6390: connect: connection refused"
-time=2026-10-12T13:59:06.407Z level=ERROR msg="v2: internal server error: dial tcp 127.0.0.1:6390: connect: connection refused"
---- FAIL: TestRegisterAllCreatesAllSchemaLinks (0.01s)
-    schema_link_test.go:58: 
-        	Error Trace:	/home/runner/work/vikunja/vikunja/pkg/routes/api/v2/schema_link_test.go:58
-        	Error:      	Huma could not create a schema link
-        	Test:       	TestRegisterAllCreatesAllSchemaLinks
-        	Messages:   	Warning: unable to create schema link for type apiv2.projectFinanceReadBody : reflect: embedded type with methods not implemented if type is not first field — the response body type embeds a type with a non-empty method set; see this test's doc comment
-FAIL
-coverage: 38.9% of statements
-FAIL	code.vikunja.io/api/pkg/routes/api/v2	0.035s
-ok  	code.vikunja.io/api/pkg/routes/caldav	1.082s	coverage: 55.7% of statements
-ok  	code.vikunja.io/api/pkg/routes/feeds	0.037s	coverage: 85.9% of statements
-ok  	code.vikunja.io/api/pkg/routes/middleware	0.004s	coverage: 71.1% of statements
+ok  	code.vikunja.io/api/pkg/routes/api/v2	0.056s	coverage: 38.9% of statements
+ok  	code.vikunja.io/api/pkg/routes/caldav	2.147s	coverage: 55.7% of statements
+ok  	code.vikunja.io/api/pkg/routes/feeds	0.066s	coverage: 85.9% of statements
+ok  	code.vikunja.io/api/pkg/routes/middleware	(cached)	coverage: 71.1% of statements
 	code.vikunja.io/api/pkg/swagger		coverage: 0.0% of statements
-ok  	code.vikunja.io/api/pkg/user	0.085s	coverage: 53.3% of statements
-ok  	code.vikunja.io/api/pkg/utils	3.021s	coverage: 75.1% of statements
+ok  	code.vikunja.io/api/pkg/user	(cached)	coverage: 53.3% of statements
+ok  	code.vikunja.io/api/pkg/utils	(cached)	coverage: 75.1% of statements
 	code.vikunja.io/api/pkg/version		coverage: 0.0% of statements
-ok  	code.vikunja.io/api/pkg/web	0.112s	coverage: [no statements]
-ok  	code.vikunja.io/api/pkg/web/files	0.008s	coverage: 13.6% of statements
+ok  	code.vikunja.io/api/pkg/web	0.200s	coverage: [no statements]
+ok  	code.vikunja.io/api/pkg/web/files	0.011s	coverage: 13.6% of statements
 	code.vikunja.io/api/pkg/web/handler		coverage: 0.0% of statements
-ok  	code.vikunja.io/api/pkg/websocket	4.999s	coverage: 73.1% of statements
-ok  	code.vikunja.io/api/pkg/webtests	0.010s
-ok  	code.vikunja.io/api/pkg/yaegi_symbols	0.013s	coverage: 4.9% of statements
-FAIL
-Error: exit status 1
+ok  	code.vikunja.io/api/pkg/websocket	4.196s	coverage: 73.1% of statements
+ok  	code.vikunja.io/api/pkg/webtests	0.015s
+ok  	code.vikunja.io/api/pkg/yaegi_symbols	0.020s	coverage: 4.9% of statements
 ===== 5-frontend-typecheck.log =====
 $ vue-tsc --build --force
 ===== 6-frontend-lint.log =====
@@ -468,10 +199,10 @@ More info and automated migrator: https://sass-lang.com/d/import
 
 DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
 
-... (5751 lines, middle cut) ...
-798:[90mstdout[2m | src/composables/useWebSocket.test.ts[2m > [22m[2mstops awaiting the first connection when the socket cannot be created
-801:[90mstderr[2m | src/composables/useWebSocket.test.ts[2m > [22m[2mstops awaiting the first connection when the socket cannot be created
-802:[22m[39mWebSocket: failed to create connection Error: blocked
+... (5753 lines, middle cut) ...
+714:[90mstdout[2m | src/composables/useWebSocket.test.ts[2m > [22m[2mstops awaiting the first connection when the socket cannot be created
+717:[90mstderr[2m | src/composables/useWebSocket.test.ts[2m > [22m[2mstops awaiting the first connection when the socket cannot be created
+718:[22m[39mWebSocket: failed to create connection Error: blocked
 1944:[22m[39m[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
 1947:[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
 1964:[22m[39m[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
@@ -480,47 +211,47 @@ DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be remo
 1987:[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
 2004:[22m[39m[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
 2007:[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
-2024:[22m[39m[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
-2027:[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
-2044:[22m[39m[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
-2047:[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
-2064:[22m[39m[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
-2067:[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
-2084:[22m[39m[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
-2087:[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
-2104:[22m[39m[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
-2107:[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
-3422:[90mstderr[2m | src/stores/base.test.ts[2m > [22m[2mbase store identity reset[2m > [22m[2mshows the rate limit error when the first user request is rate limited
-3423:[22m[39mError refreshing user info: { status: [33m429[39m }
-3944:  at <BaseButton class="button is-text is-inverted underline-none has-no-shadow" disabled=false aria-disabled=undefined  ... > 
-3961:  at <BaseButton class="button is-outlined" disabled=false aria-disabled=undefined  ... > 
-3970:  at <XButton key=1 variant="primary" icon=undefined  ... > 
-3978:  at <BaseButton class="button is-primary mis-2" disabled=false aria-disabled=undefined  ... > 
-3979:  at <XButton key=1 variant="primary" icon=undefined  ... > 
-3995:  at <BaseButton class="button is-text is-inverted underline-none has-no-shadow" disabled=false aria-disabled=undefined  ... > 
-4012:  at <BaseButton class="button is-outlined" disabled=false aria-disabled=undefined  ... > 
-4021:  at <XButton key=1 variant="primary" icon=undefined  ... > 
-4030:  at <XButton key=1 variant="primary" icon=undefined  ... > 
-4048:  at <BaseButton class="button is-text is-inverted underline-none has-no-shadow" disabled=false aria-disabled=undefined  ... > 
-4065:  at <BaseButton class="button is-outlined" disabled=false aria-disabled=undefined  ... > 
-4074:  at <XButton key=1 variant="primary" icon=undefined  ... > 
-4082:  at <BaseButton class="button is-primary mis-2" disabled=false aria-disabled=undefined  ... > 
-4083:  at <XButton key=1 variant="primary" icon=undefined  ... > 
-5160: [32m✓[39m src/helpers/parseValidationErrors.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 5[2mms[22m[39m
-5189:  at <BaseButton class="button is-primary" disabled=false aria-disabled=undefined  ... > 
-5200:  at <BaseButton class="button is-primary" disabled=false aria-disabled=undefined  ... > 
-5232:  at <BaseButton class="button is-primary" disabled=false aria-disabled=undefined  ... > 
-5243:  at <BaseButton class="button is-primary has-no-shadow" disabled=false aria-disabled=undefined  ... > 
-5254:  at <BaseButton class="button is-primary" disabled=false aria-disabled=undefined  ... > 
-5265:  at <BaseButton class="button is-text is-inverted underline-none has-no-shadow" disabled=false aria-disabled=undefined  ... > 
-5310:  at <BaseButton class="button is-primary" disabled=false aria-disabled=undefined  ... > 
-5321:  at <BaseButton class="button is-primary" disabled=true aria-disabled=undefined  ... > 
-5328: [32m✓[39m src/helpers/handleChunkLoadErrors.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 7[2mms[22m[39m
-5370:[90mstderr[2m | src/message/index.test.ts[2m > [22m[2mgetErrorText[2m > [22m[2mfalls back to the message for an unknown error code
-5371:[22m[39m[intlify] Not found 'error.99999' key in 'en' locale messages.
-5373:[90mstderr[2m | src/message/index.test.ts[2m > [22m[2mgetErrorText[2m > [22m[2mreads a direct problem response
-5374:[22m[39m[intlify] Not found 'error.99999' key in 'en' locale messages.
-5712: [32m✓[39m src/views/tasks/taskDetailError.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+2025:[22m[39m[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+2028:[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+2045:[22m[39m[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+2048:[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+2065:[22m[39m[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+2068:[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+2085:[22m[39m[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+2088:[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+2105:[22m[39m[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+2108:[Vue warn]: Invalid watch source:  { value: [90mundefined[39m } A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types. 
+3403:[90mstderr[2m | src/stores/base.test.ts[2m > [22m[2mbase store identity reset[2m > [22m[2mshows the rate limit error when the first user request is rate limited
+3404:[22m[39mError refreshing user info: { status: [33m429[39m }
+3945:  at <BaseButton class="button is-text is-inverted underline-none has-no-shadow" disabled=false aria-disabled=undefined  ... > 
+3962:  at <BaseButton class="button is-outlined" disabled=false aria-disabled=undefined  ... > 
+3971:  at <XButton key=1 variant="primary" icon=undefined  ... > 
+3979:  at <BaseButton class="button is-primary mis-2" disabled=false aria-disabled=undefined  ... > 
+3980:  at <XButton key=1 variant="primary" icon=undefined  ... > 
+3996:  at <BaseButton class="button is-text is-inverted underline-none has-no-shadow" disabled=false aria-disabled=undefined  ... > 
+4013:  at <BaseButton class="button is-outlined" disabled=false aria-disabled=undefined  ... > 
+4022:  at <XButton key=1 variant="primary" icon=undefined  ... > 
+4031:  at <XButton key=1 variant="primary" icon=undefined  ... > 
+4049:  at <BaseButton class="button is-text is-inverted underline-none has-no-shadow" disabled=false aria-disabled=undefined  ... > 
+4066:  at <BaseButton class="button is-outlined" disabled=false aria-disabled=undefined  ... > 
+4075:  at <XButton key=1 variant="primary" icon=undefined  ... > 
+4083:  at <BaseButton class="button is-primary mis-2" disabled=false aria-disabled=undefined  ... > 
+4084:  at <XButton key=1 variant="primary" icon=undefined  ... > 
+5162: [32m✓[39m src/helpers/parseValidationErrors.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+5192:  at <BaseButton class="button is-primary" disabled=false aria-disabled=undefined  ... > 
+5203:  at <BaseButton class="button is-primary" disabled=false aria-disabled=undefined  ... > 
+5214:  at <BaseButton class="button is-primary" disabled=false aria-disabled=undefined  ... > 
+5225:  at <BaseButton class="button is-primary has-no-shadow" disabled=false aria-disabled=undefined  ... > 
+5236:  at <BaseButton class="button is-primary" disabled=false aria-disabled=undefined  ... > 
+5247:  at <BaseButton class="button is-text is-inverted underline-none has-no-shadow" disabled=false aria-disabled=undefined  ... > 
+5291:  at <BaseButton class="button is-primary" disabled=false aria-disabled=undefined  ... > 
+5302:  at <BaseButton class="button is-primary" disabled=true aria-disabled=undefined  ... > 
+5330: [32m✓[39m src/helpers/handleChunkLoadErrors.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+5372:[90mstderr[2m | src/message/index.test.ts[2m > [22m[2mgetErrorText[2m > [22m[2mfalls back to the message for an unknown error code
+5373:[22m[39m[intlify] Not found 'error.99999' key in 'en' locale messages.
+5375:[90mstderr[2m | src/message/index.test.ts[2m > [22m[2mgetErrorText[2m > [22m[2mreads a direct problem response
+5376:[22m[39m[intlify] Not found 'error.99999' key in 'en' locale messages.
+5714: [32m✓[39m src/views/tasks/taskDetailError.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
 ... tail ...
 
 DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
@@ -534,7 +265,6 @@ More info and automated migrator: https://sass-lang.com/d/import
     ../../../../../../../src/styles/common-imports.scss 16:9               @import
     ../../../../../../../src/components/gantt/GanttRelationArrows.vue 2:9  root stylesheet
 
- [32m✓[39m src/components/input/editor/blockquoteWithCommentId.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 52[2mms[22m[39m
 DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
 
 More info and automated migrator: https://sass-lang.com/d/import
@@ -556,9 +286,11 @@ More info and automated migrator: https://sass-lang.com/d/import
     ../../../../../../../src/styles/common-imports.scss 16:9      @import
     ../../../../../../../src/components/gantt/GanttChart.vue 2:9  root stylesheet
 
- [32m✓[39m src/components/gantt/GanttChart.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 32[2mms[22m[39m
- [32m✓[39m src/client/queryClient.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 7[2mms[22m[39m
- [32m✓[39m src/views/user/PasswordReset.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 37[2mms[22m[39m
+ [32m✓[39m src/components/gantt/GanttChart.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 45[2mms[22m[39m
+ [32m✓[39m src/components/input/editor/blockquoteWithCommentId.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 92[2mms[22m[39m
+ [32m✓[39m src/client/queryClient.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/views/user/PasswordReset.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 41[2mms[22m[39m
+ [32m✓[39m src/components/input/editor/TaskLinkView.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 65[2mms[22m[39m
 [90mstderr[2m | src/components/project/partials/FilterPopup.test.ts[2m > [22m[2mFilterPopup[2m > [22m[2mcarries every field the filters edited to the parent
 [22m[39m[Vue warn]: Failed to resolve component: XButton
 If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. 
@@ -579,37 +311,37 @@ If this is a native custom element, make sure to exclude it from component resol
   at <FilterPopup modelValue= { filter: [32m''[39m, q: [32m''[39m, filter_include_nulls: [33mfalse[39m, per_page: [33m50[39m } ref="VTU_COMPONENT" > 
   at <VTUROOT>
 
- [32m✓[39m src/components/project/partials/FilterPopup.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 21[2mms[22m[39m
- [32m✓[39m src/components/input/editor/TaskLinkView.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 33[2mms[22m[39m
- [32m✓[39m src/helpers/calculateTaskPosition.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 3[2mms[22m[39m
- [32m✓[39m src/components/input/FormCheckbox.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 38[2mms[22m[39m
- [32m✓[39m src/views/user/RequestPasswordReset.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 36[2mms[22m[39m
- [32m✓[39m src/helpers/time/roundToNaturalDayBoundary.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 3[2mms[22m[39m
- [32m✓[39m src/helpers/apiUrl.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 7[2mms[22m[39m
- [32m✓[39m src/helpers/runWrites.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 5[2mms[22m[39m
- [32m✓[39m src/helpers/parseDateOrNull.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 5[2mms[22m[39m
- [32m✓[39m src/client/publicClient.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 6[2mms[22m[39m
- [32m✓[39m src/composables/useClampedPage.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 6[2mms[22m[39m
- [32m✓[39m src/client/queries/subscriptionRequests.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 6[2mms[22m[39m
- [32m✓[39m src/components/misc/Shortcut.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 22[2mms[22m[39m
- [32m✓[39m src/helpers/hourToDaytime.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 4[2mms[22m[39m
- [32m✓[39m src/components/home/Logo.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 25[2mms[22m[39m
- [32m✓[39m src/views/migrate/migrators.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 8[2mms[22m[39m
- [32m✓[39m src/helpers/time/calendarGrid.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 5[2mms[22m[39m
- [32m✓[39m src/components/input/editor/clipboardHtml.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/helpers/time/toISOStringOrNull.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 4[2mms[22m[39m
- [32m✓[39m src/views/migrate/csvAttributeLabels.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 3[2mms[22m[39m
- [32m✓[39m src/components/misc/PaginationItem.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 32[2mms[22m[39m
- [32m✓[39m src/helpers/user.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
- [32m✓[39m src/helpers/apiToken.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 4[2mms[22m[39m
- [32m✓[39m src/views/tasks/taskDetailError.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 3[2mms[22m[39m
- [32m✓[39m src/helpers/time/dateMath.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 5[2mms[22m[39m
- [32m✓[39m src/helpers/stringHash.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 5[2mms[22m[39m
- [32m✓[39m src/client/queries/fetchAllPages.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 4[2mms[22m[39m
- [32m✓[39m src/helpers/saveLastVisited.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 3[2mms[22m[39m
- [32m✓[39m src/helpers/time/createDateFromString.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 3[2mms[22m[39m
- [32m✓[39m src/client/queries/blobResponse.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 3[2mms[22m[39m
- [32m✓[39m src/views/project/helpers/useGanttTaskList.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 2[2mms[22m[39m
+ [32m✓[39m src/components/project/partials/FilterPopup.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 46[2mms[22m[39m
+ [32m✓[39m src/helpers/calculateTaskPosition.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/components/input/FormCheckbox.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 59[2mms[22m[39m
+ [32m✓[39m src/views/user/RequestPasswordReset.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 59[2mms[22m[39m
+ [32m✓[39m src/helpers/time/roundToNaturalDayBoundary.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/helpers/apiUrl.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m src/helpers/runWrites.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/helpers/parseDateOrNull.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/client/publicClient.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/composables/useClampedPage.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m src/client/queries/subscriptionRequests.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/components/misc/Shortcut.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 36[2mms[22m[39m
+ [32m✓[39m src/helpers/hourToDaytime.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/components/home/Logo.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 38[2mms[22m[39m
+ [32m✓[39m src/views/migrate/migrators.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/components/input/editor/clipboardHtml.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/helpers/time/calendarGrid.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/helpers/time/toISOStringOrNull.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m src/views/migrate/csvAttributeLabels.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m src/components/misc/PaginationItem.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 50[2mms[22m[39m
+ [32m✓[39m src/helpers/user.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/helpers/apiToken.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/views/tasks/taskDetailError.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/helpers/time/dateMath.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/client/queries/fetchAllPages.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/helpers/stringHash.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/helpers/saveLastVisited.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/helpers/time/createDateFromString.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/client/queries/blobResponse.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/views/project/helpers/useGanttTaskList.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/composables/useRouteFilters.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 5[2mms[22m[39m
 DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
 
 More info and automated migrator: https://sass-lang.com/d/import
@@ -631,14 +363,13 @@ More info and automated migrator: https://sass-lang.com/d/import
     ../../../../../../../src/styles/common-imports.scss 16:9                      @import
     ../../../../../../../src/components/input/editor/mention/MentionList.vue 2:9  root stylesheet
 
- [32m✓[39m src/components/input/editor/mention/mentionSuggestion.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 3[2mms[22m[39m
- [32m✓[39m src/composables/useRouteFilters.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 2[2mms[22m[39m
- [32m✓[39m src/composables/useIsAlive.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 4[2mms[22m[39m
- [32m✓[39m src/helpers/color/colorIsDark.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 3[2mms[22m[39m
- [32m✓[39m src/helpers/color/colorFromHex.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 2[2mms[22m[39m
+ [32m✓[39m src/components/input/editor/mention/mentionSuggestion.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/composables/useIsAlive.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m src/helpers/color/colorIsDark.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/helpers/color/colorFromHex.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 3[2mms[22m[39m
 
 [2m Test Files [22m [1m[32m194 passed[39m[22m[90m (194)[39m
 [2m      Tests [22m [1m[32m2421 passed[39m[22m[90m (2421)[39m
-[2m   Start at [22m 14:00:02
-[2m   Duration [22m 46.25s[2m (transform 13.51s, setup 959ms, import 51.81s, tests 16.68s, environment 44.62s)[22m
+[2m   Start at [22m 14:06:49
+[2m   Duration [22m 70.55s[2m (transform 19.02s, setup 1.31s, import 75.71s, tests 21.87s, environment 76.30s)[22m
 

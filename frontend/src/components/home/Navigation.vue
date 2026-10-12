@@ -53,6 +53,14 @@
 					</RouterLink>
 				</li>
 				<li>
+					<RouterLink :to="{ name: 'projects.overview'}">
+						<span class="menu-item-icon icon">
+							<Icon icon="chart-column" />
+						</span>
+						{{ $t('projectFinance.overview.menu') }}
+					</RouterLink>
+				</li>
+				<li>
 					<RouterLink
 						v-shortcut="SHORTCUTS.navigation.labels"
 						:to="{ name: 'labels.index'}"

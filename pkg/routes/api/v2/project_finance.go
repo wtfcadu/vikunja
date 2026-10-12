@@ -241,8 +241,12 @@ func projectPaymentsDelete(ctx context.Context, in *struct {
 	return &emptyBody{}, nil
 }
 
+type projectOverview struct {
+	Items []*models.ProjectOverviewItem `json:"items" doc:"Every project the requesting user owns."`
+}
+
 type projectOverviewBody struct {
-	Body []*models.ProjectOverviewItem
+	Body *projectOverview
 }
 
 func projectOverviewList(ctx context.Context, _ *struct{}) (*projectOverviewBody, error) {
@@ -260,5 +264,5 @@ func projectOverviewList(ctx context.Context, _ *struct{}) (*projectOverviewBody
 	if err != nil {
 		return nil, translateDomainError(err)
 	}
-	return &projectOverviewBody{Body: items}, nil
+	return &projectOverviewBody{Body: &projectOverview{Items: items}}, nil
 }

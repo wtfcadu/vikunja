@@ -44,6 +44,13 @@
 
 		<template v-else-if="project.is_archived">
 			<DropdownItem
+				v-if="isOwner"
+				:to="{ name: 'project.settings.finance', params: { projectId: project.id } }"
+				icon="coins"
+			>
+				{{ $t('projectFinance.money') }}
+			</DropdownItem>
+			<DropdownItem
 				:to="{ name: 'project.settings.archive', params: { projectId: project.id } }"
 				icon="archive"
 			>
@@ -56,6 +63,13 @@
 				icon="pen"
 			>
 				{{ $t('menu.edit') }}
+			</DropdownItem>
+			<DropdownItem
+				v-if="isOwner"
+				:to="{ name: 'project.settings.finance', params: { projectId: project.id } }"
+				icon="coins"
+			>
+				{{ $t('projectFinance.money') }}
 			</DropdownItem>
 			<DropdownItem
 				:to="{ name: 'project.settings.views', params: { projectId: project.id } }"
@@ -153,4 +167,5 @@ const backgroundsEnabled = computed(() => configStore.enabled_background_provide
 
 const authStore = useAuthStore()
 const isDefaultProject = computed(() => props.project?.id === authStore.settings.default_project_id)
+const isOwner = computed(() => Boolean(props.project?.owner?.id) && props.project.owner?.id === authStore.info?.id)
 </script>

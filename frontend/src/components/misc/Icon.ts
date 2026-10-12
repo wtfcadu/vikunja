@@ -5,6 +5,8 @@ import {
 	faAngleRight,
 	faAnglesUp,
 	faArchive,
+	faCoins,
+	faChartColumn,
 	faArrowLeft,
 	faArrowDownShortWide,
 	faArrowUpFromBracket,
@@ -132,6 +134,8 @@ library.add(faAlignLeft)
 library.add(faAngleLeft)
 library.add(faAngleRight)
 library.add(faArchive)
+library.add(faCoins)
+library.add(faChartColumn)
 library.add(faArrowLeft)
 library.add(faBars)
 library.add(faBell)

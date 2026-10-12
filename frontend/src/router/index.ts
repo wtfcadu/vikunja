@@ -251,6 +251,11 @@ const router = createRouter({
 			component: () => import('@/views/project/ListProjects.vue'),
 		},
 		{
+			path: '/overview',
+			name: 'projects.overview',
+			component: () => import('@/views/project/ProjectsOverview.vue'),
+		},
+		{
 			path: '/projects/new',
 			name: 'project.create',
 			component: () => import('@/views/project/NewProject.vue'),
@@ -312,6 +317,15 @@ const router = createRouter({
 			path: '/projects/:projectId(\\d+)/settings/delete',
 			name: 'project.settings.delete',
 			component: () => import('@/views/project/settings/ProjectSettingsDelete.vue'),
+			meta: {
+				showAsModal: true,
+			},
+		},
+		{
+			path: '/projects/:projectId(\\d+)/settings/finance',
+			name: 'project.settings.finance',
+			component: () => import('@/views/project/settings/ProjectSettingsFinance.vue'),
+			props: route => ({ projectId: Number(route.params.projectId as string) }),
 			meta: {
 				showAsModal: true,
 			},

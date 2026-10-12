@@ -125,6 +125,16 @@ func (pf *ProjectFinance) ReadOne(s *xorm.Session, _ web.Auth) error {
 	return nil
 }
 
+// ReadAll returns the finance details of the project as a one-item list. It
+// exists so the generic handlers and schema reflection see a complete method
+// set; the API reads details through ReadOne.
+func (pf *ProjectFinance) ReadAll(s *xorm.Session, a web.Auth, _ string, _ int, _ int) (result interface{}, resultCount int, numberOfTotalItems int64, err error) {
+	if err := pf.ReadOne(s, a); err != nil {
+		return nil, 0, 0, err
+	}
+	return []*ProjectFinance{pf}, 1, 1, nil
+}
+
 func (pf *ProjectFinance) normalize() {
 	pf.Client = strings.TrimSpace(pf.Client)
 	pf.Currency = strings.ToUpper(strings.TrimSpace(pf.Currency))
